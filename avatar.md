@@ -1,0 +1,96 @@
+```powershell
+. . . . . . . .
+. . R R R R . .
+. R R G G R R .
+R R G G G G R R
+. G G G G G G .
+. G G G G G G .
+. . G G G G . .
+. . . . . . . .
+
+. . . . . . . .
+. . G G G G . .
+. G G G G G G .
+. G G G G G G .
+R R G G G G R R
+. R R G G R R .
+. . R R R R . .
+. . . . . . . .
+
+. . . . R . . . . . . R . . . .
+. . G G R R . . . . R R G G . .
+. G G G G R R . . R R G G G G .
+. G G G G G R . . R G G G G G .
+. G G G G G R . . R G G G G G .
+. G G G G R R . . R R G G G G .
+. . G G R R . . . . R R G G . .
+. . . . R . . . . . . R . . . .
+
+. . . . . . . . . . . . . . . .
+. . . . . . G G G G . . . . . .
+. . . . . G G G G G G . . . . .
+. . . . . G G G G G G . . . . .
+. . . . R R G G G G R R . . . .
+. . . . . R R G G R R . . . . .
+. . . . . . R R R R . . . . . .
+. . . . . . . . . . . . . . . .
+. . . . R . . . . . . R . . . .
+. . G G R R . . . . R R G G . .
+. G G G G R R . . R R G G G G .
+. G G G G G R . . R G G G G G .
+. G G G G G R . . R G G G G G .
+. G G G G R R . . R R G G G G .
+. . G G R R . . . . R R G G . .
+. . . . R . . . . . . R . . . .
+
+. . . . . . . . . . . . . . . .
+. . . . . . G G G G . . . . . .
+. . . . . G G G G G G . . . . .
+. . . . . G G G G G G . . . . .
+. . . . R R G G G G R R . . . .
+. . . . . R R G G R R . . . . .
+. . . . . . R R R R . . . . . .
+. . . . R . . . . . . R . . . .
+. . G G R R . . . . R R G G . .
+. G G G G R R . . R R G G G G .
+. G G G G G R . . R G G G G G .
+. G G G G G R . . R G G G G G .
+. G G G G R R . . R R G G G G .
+. . G G R R . . . . R R G G . .
+. . . . R . . . . . . R . . . .
+. . . . . . R R R R . . . . . .
+. . . . . R R G G R R . . . . .
+. . . . R R G G G G R R . . . . 
+. . . . . G G G G G G . . . . .
+. . . . . G G G G G G . . . . .
+. . . . . . G G G G . . . . . .
+. . . . . . . . . . . . . . . .
+
+
+. . . . . . . . . . . . . . . . . .
+. . . . . . . G G G G . . . . . . .
+. . . . . . G G G G G G . . . . . .
+. . . . . . G G G G G G . . . . . .
+. . . . R R R G G G G R R R . . . .
+. . G G R R R R G G R R R R G G . .
+. G G G G R R R R R R R R G G G G .
+. G G G G G R . . . . R G G G G G .
+. G G G G G R . . . . R G G G G G .
+. G G G G R R R R R R R R G G G G .
+. . G G R R R R G G R R R R G G . .
+. . . . R R R G G G G R R R . . . .
+. . . . . . G G G G G G . . . . . .
+. . . . . . G G G G G G . . . . . .
+. . . . . . . G G G G . . . . . . .
+. . . . . . . . . . . . . . . . . .
+
+. . . . R R R G G G G R R R . . . .
+. . G G R R R R G G R R R R G G . .
+. G G G G R R R R R R R R G G G G .
+. G G G G G R . . . . R G G G G G .
+. G G G G G R . . . . R G G G G G .
+. G G G G R R R R R R R R G G G G .
+. . G G R R R R G G R R R R G G . .
+. . . . R R R G G G G R R R . . . .
+
+```
