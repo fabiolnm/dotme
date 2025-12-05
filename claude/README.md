@@ -4,13 +4,20 @@
 
 ## Quick Help (type `?`)
 
+### Special Characters
+
+| Key | What it does | Details | Example |
+|-----|--------------|---------|---------|
+| `!` | Bash mode | Execute shell commands directly | `!git push` |
+| `/` | Commands | Built-in (see below) and custom (`claude/commands/`) | `/review` |
+| `@` | File paths | Reference files for Claude to read | `@README.md` |
+| `#` | Memorize | Save facts for future sessions in `~/.claude/memory/` | `# always run tests before commit` |
+| `&` | Background | Run commands in background | `&./itsame` |
+
+### Keyboard Shortcuts
+
 | Key | What it does | Details |
 |-----|--------------|---------|
-| `!` | Bash mode | Execute shell commands directly |
-| `/` | Commands | Built-in (see below) and custom (`claude/commands/`) |
-| `@` | File paths | Reference files for Claude to read |
-| `#` | Memorize | Save facts for future sessions in `~/.claude/memory/` |
-| `&` | Background | Run commands in background (e.g., `&npm run dev`) |
 | `double tap esc` | Clear input | |
 | `shift + tab` | Toggle mode | Switch between Plan and Edit modes (see below) |
 | `shift + ⏎` | Newline | Insert newline in prompt |
