@@ -60,7 +60,7 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 | Tasks | `/tasks` | List and manage background tasks |
 | Tasks | `/todos` | List current todo items |
 | Tools | `/agents` | Manage agent configurations (see below) |
-| Tools | `/hooks` | Manage hook configurations for tool events |
+| Tools | `/hooks` | Manage hook configurations for tool events (see below) |
 | Tools | `/mcp` | Manage MCP servers |
 | Tools | `/plugin` | Manage Claude Code plugins |
 | Tools | `/ide` | Manage IDE integrations and show status |
@@ -132,6 +132,28 @@ Manages specialized AI personas stored in `.claude/agents/`. Agents are domain e
 - Domain analysis (performance, accessibility, etc.)
 
 **Location:** `~/.claude/agents/*.md` (see `agents/README.md` for format)
+
+### About `/hooks`
+
+Configures shell commands that run automatically on Claude Code events. Hooks enable custom automation, validation, and integration with external tools.
+
+**What `/hooks` does:**
+- List configured hooks
+- Create new hooks interactively
+- Edit or delete existing hooks
+
+**Available events:**
+- `user-prompt-submit` — when you send a message (access `$PROMPT`)
+- `tool-call` — before Claude runs a tool (access `$TOOL_NAME`, `$TOOL_ARGS`)
+- `session-start` — when Claude Code starts
+
+**Use cases:**
+- Audit logging of all prompts
+- Block dangerous commands (e.g., `rm -rf`)
+- Show git status on session start
+- Trigger external notifications
+
+**Location:** `~/.claude/settings.json` (see `hooks/README.md` for examples)
 
 ## Quick Reference
 
