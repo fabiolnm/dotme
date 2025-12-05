@@ -32,8 +32,8 @@
 | Session | `/clear` | Clear conversation history and free up context |
 | Session | `/compact` | Clear history but keep a summary (optional: `/compact [instructions]`) |
 | Session | `/exit` | Exit the REPL |
-| Session | `/resume` | Resume a conversation |
-| Session | `/rewind` | Restore code and/or conversation to a previous point |
+| Session | `/resume` | Resume a conversation (see below) |
+| Session | `/rewind` | Restore code and/or conversation to a previous point (see below) |
 | Session | `/plan` | View or open the current session plan |
 | Tasks | `/tasks` | List and manage background tasks |
 | Tasks | `/todos` | List current todo items |
@@ -62,6 +62,14 @@
 | Info | `/release-notes` | View release notes |
 | Info | `/export` | Export conversation to a file or clipboard |
 | Info | `/feedback` | Submit feedback about Claude Code |
+
+### About `/resume`
+
+When you exit Claude (`/exit` or close terminal), your conversation history is saved. Next time you run `claude`, you start fresh. Use `/resume` to pick up where you left off — same context, same files discussed, same task progress.
+
+### About `/rewind`
+
+Rolls back both code AND conversation to an earlier checkpoint. Unlike `ctrl + _` (which undoes the last file edit), `/rewind` goes back to a previous point in the entire session — undoing multiple file changes and removing conversation history after that point. Use when Claude went down a wrong path and you want to try a different approach.
 
 ## Quick Reference
 
