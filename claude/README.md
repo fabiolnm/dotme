@@ -48,11 +48,11 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 
 | Group | Command | What it does |
 |-------|---------|--------------|
+| Project | `/init` | Initialize a new CLAUDE.md file with codebase documentation (see below) |
 | Project | `/add-dir` | Add a new working directory (see below) |
-| Project | `/context` | Visualize current context usage as a colored grid |
-| Project | `/init` | Initialize a new CLAUDE.md file with codebase documentation |
-| Session | `/clear` | Clear conversation history and free up context |
-| Session | `/compact` | Clear history but keep a summary (optional: `/compact [instructions]`) |
+| Context | `/context` | Visualize current context usage as a colored grid |
+| Context | `/clear` | Clear conversation history and free up context |
+| Context | `/compact` | Clear history but keep a summary (optional: `/compact [instructions]`) |
 | Session | `/exit` | Exit the REPL |
 | Session | `/resume` | Resume a conversation (see below) |
 | Session | `/rewind` | Restore code and/or conversation to a previous point (see below) |
