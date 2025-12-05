@@ -2,10 +2,27 @@
 
 > Claude understands your codebase, makes edits with your permission, and executes commands — right from your terminal.
 
-## Getting Help
+## Quick Help (type `?`)
 
-- **?** — Show Claude help
-- **/help** — See available commands:
+| Key | What it does | Details |
+|-----|--------------|---------|
+| `!` | Bash mode | Execute shell commands directly |
+| `/` | Commands | Built-in (see below) and custom (`claude/commands/`) |
+| `@` | File paths | Reference files for Claude to read |
+| `#` | Memorize | Save facts for future sessions in `~/.claude/memory/` |
+| `&` | Background | Run commands in background |
+| `double tap esc` | Clear input | |
+| `shift + tab` | Toggle mode | Switch between Plan and Edit modes (see below) |
+| `shift + ⏎` | Newline | Insert newline in prompt |
+| `tab` | Toggle thinking | See Claude's reasoning for complex problems |
+| `ctrl + _` | Undo | Repeatable, like editor undo |
+| `ctrl + z` | Suspend | Returns to shell, use `fg` to resume |
+| `ctrl + o` | Verbose output | Debug Claude's process |
+| `ctrl + t` | Show todos | Current task list |
+| `ctrl + g` | Vim mode | Vim keybindings in input area |
+| `ctrl + v` | Paste images | Claude analyzes screenshots, diagrams, visual context |
+
+## Expanded Help (type `/help`)
 
 | Group | Command | What it does |
 |-------|---------|--------------|
@@ -65,20 +82,6 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 **Plan Mode**: Claude reads specs, inspects the codebase, and asks clarifying questions until the solution is clear. It writes a step-by-step implementation plan (saved to `.claude/`) but makes no changes. When ready, Claude prompts you to switch to Edit Mode.
 
 **Edit Mode**: Claude implements the plan — adds, refactors, and removes code, runs tests, and commits changes.
-
-## Keyboard Shortcuts
-
-| Key | What it does |
-|-----|--------------|
-| `shift + ⏎` | Insert newline in prompt |
-| `double tap esc` | Clear input field |
-| `ctrl + _` | Undo last action (repeatable, like editor undo) |
-| `ctrl + z` | Suspend session to shell (use `fg` to resume) |
-| `ctrl + o` | Toggle verbose output (debug Claude's process) |
-| `ctrl + v` | Paste images — Claude analyzes screenshots, diagrams, visual context |
-| `ctrl + g` | Vim keybindings in input area |
-| `ctrl + t` | Show todos (current task list) |
-| `tab` | Toggle thinking mode — see Claude's reasoning for complex problems |
 
 ## Special Characters
 
