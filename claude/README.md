@@ -529,10 +529,10 @@ See: `hooks/README.md`
 - Break large tasks into steps
 
 ### Using Context
-- @ to include files
-- # to save facts for later
-- /memory to review remembered context
-- /context to see current scope
+- `@` to include files
+- `#` to save facts for later
+- `/memory` to review remembered context
+- `/context` to see current scope
 
 ### Workflow Patterns
 - **Exploration**: Plan mode + thinking
