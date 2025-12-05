@@ -27,44 +27,19 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 
 **Edit Mode**: Claude implements the plan — adds, refactors, and removes code, runs tests, and commits changes.
 
-## Input Controls
+## Keyboard Shortcuts
 
-- **shift + ⏎**: Insert newline in your prompt (multi-line input)
-- **double tap esc**: Clear input field
-
-## Undo and Control
-- **ctrl + _**: Undo last action
-  - Reverts the most recent file change or operation
-  - Works like editor undo, can be repeated
-  - Useful when Claude makes unwanted changes
-- **ctrl + z**: Suspend Claude session
-  - Returns you to shell (like suspending any terminal app)
-  - Use `fg` to resume the Claude session
-  - Different from `/exit` - doesn't terminate Claude
-
-## Output and Input
-- **ctrl + o**: Toggle verbose output
-  - Shows detailed information about what Claude is doing
-  - Useful for debugging or understanding Claude's process
-- **ctrl + v**: Paste images
-  - Attach screenshots, diagrams, or visual context
-  - Claude can analyze and discuss images
-- **ctrl + g**: Vim mode
-  - Enables vim keybindings in the input area
-  - For vim users who want familiar navigation
-
-## Workflow Controls
-- **ctrl + t**: Show todos
-  - Displays current task list
-  - See what Claude is tracking and working on
-- **tab**: Toggle thinking mode
-  - **Without thinking**: Claude responds directly
-    - Faster responses
-    - Good for simple, clear requests
-  - **With thinking**: Claude shows reasoning process
-    - See Claude's analysis and decision-making
-    - Understand why Claude chose specific approaches
-    - Useful for complex problems or learning
+| Key | What it does |
+|-----|--------------|
+| `shift + ⏎` | Insert newline in prompt |
+| `double tap esc` | Clear input field |
+| `ctrl + _` | Undo last action (repeatable, like editor undo) |
+| `ctrl + z` | Suspend session to shell (use `fg` to resume) |
+| `ctrl + o` | Toggle verbose output (debug Claude's process) |
+| `ctrl + v` | Paste images — Claude analyzes screenshots, diagrams, visual context |
+| `ctrl + g` | Vim keybindings in input area |
+| `ctrl + t` | Show todos (current task list) |
+| `tab` | Toggle thinking mode — see Claude's reasoning for complex problems |
 
 ## Special Characters
 
