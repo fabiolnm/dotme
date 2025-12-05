@@ -10,7 +10,7 @@
 | `/` | Commands | Built-in (see below) and custom (`claude/commands/`) |
 | `@` | File paths | Reference files for Claude to read |
 | `#` | Memorize | Save facts for future sessions in `~/.claude/memory/` |
-| `&` | Background | Run commands in background |
+| `&` | Background | Run commands in background (e.g., `&npm run dev`) |
 | `double tap esc` | Clear input | |
 | `shift + tab` | Toggle mode | Switch between Plan and Edit modes (see below) |
 | `shift + ⏎` | Newline | Insert newline in prompt |
