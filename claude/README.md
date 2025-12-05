@@ -67,8 +67,8 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 | Tools | `/vim` | Toggle between Vim and Normal editing modes |
 | Security | `/permissions` | Manage allow & deny tool permission rules (see below) |
 | Security | `/sandbox` | Configure sandbox mode (see below) |
-| Review | `/review` | Review a pull request |
-| Review | `/pr-comments` | Get comments from a GitHub pull request |
+| Review | `/review` | Review a pull request (see below) |
+| Review | `/pr-comments` | Get comments from a GitHub pull request (see below) |
 | Account | `/login` | Sign in with your Anthropic account |
 | Account | `/logout` | Sign out from your Anthropic account |
 | Account | `/usage` | Show plan usage limits |
@@ -231,6 +231,31 @@ Configures sandbox mode — OS-level isolation that restricts Claude's filesyste
 - Filesystem rules (read/write paths)
 - Network domains (approved hosts)
 - `allowUnsandboxedCommands` for escape hatch
+
+### About `/review`
+
+Reviews code changes in a pull request. Claude analyzes the diff and provides feedback on code quality, logic, potential bugs, and testing.
+
+**Usage:**
+- `/review` — review current branch's PR
+- `/review 123` — review PR #123
+- `/review https://github.com/org/repo/pull/123` — review by URL
+
+**What it checks:**
+- Logic errors and edge cases
+- Code style and clarity
+- Missing tests or error handling
+- Security concerns
+
+### About `/pr-comments`
+
+Fetches comments from a GitHub PR into your Claude session. See review feedback without switching to the browser.
+
+**Usage:**
+- `/pr-comments` — get comments from current PR
+- `/pr-comments 123` — get comments from PR #123
+
+**When to use:** Addressing reviewer feedback while staying in your terminal workflow.
 
 ## Quick Reference
 
