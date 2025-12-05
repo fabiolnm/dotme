@@ -134,299 +134,83 @@ Execute built-in or custom commands.
 
 ### Project Management
 
-#### /add-dir
-Add additional directories to Claude's context.
-
-**Use case**: Working across multiple directories
-```
-/add-dir ../shared-lib
-```
-
-#### /context
-Show current context (files, directories, settings).
-
-**Use case**: Understand what Claude can see
-```
-/context
-```
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/add-dir` | Add directories to Claude's context | Working across multiple directories |
+| `/context` | Show current context (files, dirs, settings) | Understand what Claude can see |
 
 ### Session Control
 
-#### /clear
-Clear conversation history but keep session active.
-
-**Use case**: Start fresh discussion without restarting
-```
-/clear
-```
-
-**Note**: Different from `/exit` - session continues, just clears history
-
-#### /exit
-Terminate Claude session completely.
-
-```
-/exit
-```
-
-#### /compact
-Compress conversation history to reduce token usage.
-
-**Use case**: Long sessions approaching token limits
-```
-/compact
-```
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/clear` | Clear history, keep session | Start fresh discussion |
+| `/exit` | Terminate session | Done working |
+| `/compact` | Compress history | Long sessions, token limits |
 
 ### Execution Management
 
-#### /bashes
-List all background bash processes.
-
-**Use case**: See what commands are still running
-```
-/bashes
-```
-
-#### /resume
-Resume a previous session.
-
-**Use case**: Continue work from earlier session
-```
-/resume
-```
-
-#### /rewind
-Go back to an earlier point in conversation.
-
-**Use case**: Undo multiple steps or restart from checkpoint
-```
-/rewind
-```
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/bashes` | List background bash processes | See what's still running |
+| `/resume` | Resume previous session | Continue earlier work |
+| `/rewind` | Go back in conversation | Undo multiple steps |
 
 ### Tools and Integrations
 
-#### /agents
-Create or manage custom agents (specialized AI personas).
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/agents` | Manage custom agents | Need domain expert, reviewer |
+| `/hooks` | Configure event-triggered scripts | Auto-logging, validation |
+| `/mcp` | Manage MCP servers | Connect external tools |
+| `/plugin` | Manage plugins | Extend functionality |
+| `/vim` | Configure vim integration | Editor setup |
 
-**Use case**: Need domain expert, code reviewer, security auditor
-```
-/agents
-```
-
-See: `agents/README.md`
-
-#### /hooks
-Configure hooks (shell commands triggered by events).
-
-**Use case**: Auto-logging, validation, custom automation
-```
-/hooks
-```
-
-See: `hooks/README.md`
-
-#### /mcp
-Manage Model Context Protocol servers.
-
-**Use case**: Connect external tools and services
-```
-/mcp
-```
-
-#### /plugin
-Manage Claude Code plugins.
-
-**Use case**: Extend functionality
-```
-/plugin
-```
-
-#### /vim
-Configure vim integration.
-
-**Use case**: Set up editor integration
-```
-/vim
-```
+See: `agents/README.md`, `hooks/README.md`
 
 ### Memory and State
 
-#### /memory
-View and manage Claude's memories.
-
-**Use case**: See what Claude remembers, remove outdated info
-```
-/memory
-```
-
-**What's stored**:
-- Facts you told Claude to remember (#)
-- Project-specific context
-- Preferences and standards
-
-#### /todos
-View current task list.
-
-**Use case**: See what Claude is tracking
-```
-/todos
-```
-
-Also accessible via: **ctrl + t**
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/memory` | View/manage memories | Review or remove stored context |
+| `/todos` | View task list (also `ctrl+t`) | See what Claude is tracking |
 
 ### Security and Permissions
 
-#### /permissions
-Review and manage file/command permissions.
-
-**Use case**: Control what Claude can access
-```
-/permissions
-```
-
-#### /sandbox
-Enable/disable sandbox mode.
-
-**Use case**: Restrict Claude's actions for safety
-```
-/sandbox
-```
-
-#### /securityreview
-Trigger security-focused code review.
-
-**Use case**: Audit code for vulnerabilities
-```
-/securityreview
-```
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/permissions` | Manage file/command permissions | Control Claude's access |
+| `/sandbox` | Enable/disable sandbox | Restrict actions for safety |
+| `/securityreview` | Security-focused code review | Audit for vulnerabilities |
 
 ### Analysis and Review
 
-#### /review
-Comprehensive code review.
-
-**Use case**: Pre-commit review, quality check
-```
-/review
-```
-
-#### /init
-Initialize Claude in a new project.
-
-**Use case**: Set up Claude for first time in repo
-```
-/init
-```
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/review` | Comprehensive code review | Pre-commit quality check |
+| `/init` | Initialize Claude in project | First-time repo setup |
 
 ### Display and UI
 
-#### /statusline
-Configure status line display.
-
-**Use case**: Customize what's shown in Claude's status bar
-```
-/statusline
-```
-
-#### /export
-Export conversation or data.
-
-**Use case**: Save discussion, share with team
-```
-/export
-```
-
-#### /usage
-Show token usage statistics.
-
-**Use case**: Monitor API usage, track costs
-```
-/usage
-```
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/statusline` | Configure status line | Customize status bar |
+| `/export` | Export conversation | Save or share discussion |
+| `/usage` | Show token stats | Monitor API usage, costs |
 
 ## Zen MCP Tools
 
 Advanced AI workflows via Zen MCP server.
 
-### /zen:chat
-General collaborative thinking partner.
-
-**Use case**: Brainstorming, getting second opinions, exploring ideas
-```
-/zen:chat
-```
-
-**What it does**: Launches external AI model for discussion
-
-### /zen:thinkdeep
-Multi-stage investigation and deep reasoning.
-
-**Use case**: Complex bugs, architecture decisions, performance analysis
-```
-/zen:thinkdeep
-```
-
-**What it does**: Systematic hypothesis testing and investigation
-
-### /zen:consensus
-Multi-model consensus through structured debate.
-
-**Use case**: Important decisions, architectural choices, evaluating trade-offs
-```
-/zen:consensus
-```
-
-**What it does**: Consults multiple AI models, synthesizes recommendations
-
-### /zen:planner
-Interactive task breakdown and planning.
-
-**Use case**: Complex projects, system design, migration strategies
-```
-/zen:planner
-```
-
-**What it does**: Builds plans incrementally with deep reflection
-
-### /zen:review (also /zen:codereview)
-Systematic code review with expert validation.
-
-**Use case**: Pre-commit review covering quality, security, performance
-```
-/zen:review
-```
-
-**What it does**: Structured investigation ensuring thoroughness
-
-### /zen:analyse (also /zen:analyze)
-Comprehensive code analysis.
-
-**Use case**: Architecture, performance, maintainability analysis
-```
-/zen:analyse
-```
-
-**What it does**: Systematic investigation with expert validation
-
-### /zen:testgen
-Generate comprehensive test suites.
-
-**Use case**: Create tests with edge case coverage
-```
-/zen:testgen
-```
-
-**What it does**: Analyzes code paths, generates framework-specific tests
-
-### /zen:challenge
-Prevents reflexive agreement, forces critical thinking.
-
-**Use case**: When user critically questions or challenges earlier answers
-```
-/zen:challenge <statement>
-```
-
-**What it does**: Scrutinizes claims, prevents automatic agreement
+| Command | What it does | When to use |
+|---------|--------------|-------------|
+| `/zen:chat` | Collaborative thinking with external AI | Brainstorming, second opinions |
+| `/zen:thinkdeep` | Multi-stage deep reasoning | Complex bugs, architecture decisions |
+| `/zen:consensus` | Multi-model structured debate | Important decisions, trade-offs |
+| `/zen:planner` | Interactive task breakdown | Complex projects, migrations |
+| `/zen:review` | Systematic code review | Pre-commit quality, security, perf |
+| `/zen:analyse` | Comprehensive code analysis | Architecture, maintainability |
+| `/zen:testgen` | Generate test suites | Tests with edge case coverage |
+| `/zen:challenge` | Force critical thinking | Challenge earlier answers |
 
 ## Typical Workflows
 
