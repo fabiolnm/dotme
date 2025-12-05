@@ -305,18 +305,6 @@ Configures default remote environment for teleport — running Claude Code on a 
 
 **When to use:** Working with codebases on remote servers, cloud VMs, or containers without copying files locally.
 
-## Quick Reference
-
-| Feature | When | How | Example |
-|---------|------|-----|---------|
-| **Commands** | Typing same instructions repeatedly | `.claude/commands/name.md` | Code review checklist |
-| **Memories** | Remember project-specific info | Tell Claude "remember that..." | Architecture decisions |
-| **Prompts** | Occasional complex instructions | `.claude/prompts/name.md` | PR description template |
-| **Skills** | Complex multi-step tasks | `skill-name/SKILL.md` with frontmatter | PDF processing |
-| **Personas** | Domain-specific guidance | `.claude/agents/name.md` | Security auditor, Python coach |
-| **Subagents** | Focused analysis, investigation | Claude launches via Task tool | Explore, Plan |
-| **Zen MCP** | Deep analysis, consensus | `mcp__zen__` tools | Multi-model consensus |
-
 ## Zen MCP Tools
 
 Advanced AI workflows via Zen MCP server.
@@ -371,30 +359,15 @@ Advanced AI workflows via Zen MCP server.
 
 ## Custom Extensions
 
-### Commands
-Simple prompt templates, accessed via `/command-name`.
-
-See: `commands/README.md`
-
-### Prompts
-Specialized templates for occasional use.
-
-See: `prompts/README.md`
-
-### Skills
-Complex multi-step workflows with tool access.
-
-See: `skills/README.md`
-
-### Agents
-Domain expert personas for specialized guidance.
-
-See: `agents/README.md`
-
-### Hooks
-Shell commands triggered by events.
-
-See: `hooks/README.md`
+| Feature | When | How | Example |
+|---------|------|-----|---------|
+| **Commands** | Typing same instructions repeatedly | `.claude/commands/name.md` | Code review checklist |
+| **Memories** | Remember project-specific info | Tell Claude "remember that..." | Architecture decisions |
+| **Prompts** | Occasional complex instructions | `.claude/prompts/name.md` | PR description template |
+| **Skills** | Complex multi-step tasks | `skill-name/SKILL.md` with frontmatter | PDF processing |
+| **Personas** | Domain-specific guidance | `.claude/agents/name.md` | Security auditor, Python coach |
+| **Subagents** | Focused analysis, investigation | Claude launches via Task tool | Explore, Plan |
+| **Zen MCP** | Deep analysis, consensus | `mcp__zen__` tools | Multi-model consensus |
 
 ## Directory Structure
 
