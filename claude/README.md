@@ -48,7 +48,7 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 
 | Group | Command | What it does |
 |-------|---------|--------------|
-| Project | `/add-dir` | Add a new working directory |
+| Project | `/add-dir` | Add a new working directory (see below) |
 | Project | `/context` | Visualize current context usage as a colored grid |
 | Project | `/init` | Initialize a new CLAUDE.md file with codebase documentation |
 | Session | `/clear` | Clear conversation history and free up context |
@@ -84,6 +84,17 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 | Info | `/release-notes` | View release notes |
 | Info | `/export` | Export conversation to a file or clipboard |
 | Info | `/feedback` | Submit feedback about Claude Code |
+
+### About `/add-dir`
+
+Expands Claude's context beyond your current working directory. By default, Claude only sees the directory you launched it from.
+
+**When to use:**
+- Monorepo: working in `packages/web` but need context from `packages/api`
+- Frontend/backend split: in `~/frontend` but referencing `~/backend`
+- Shared libraries: need to see `~/shared-lib` alongside your project
+
+**Example:** `/add-dir ../backend` — now Claude can read files there (e.g., `@../backend/src/api.py`)
 
 ### About `/resume`
 
