@@ -63,7 +63,7 @@ Claude Code turns specs into working code. Point it at a requirement (Notion PRD
 | Tools | `/hooks` | Manage hook configurations for tool events (see below) |
 | Tools | `/mcp` | Manage MCP servers |
 | Tools | `/plugin` | Manage Claude Code plugins (see below) |
-| Tools | `/ide` | Manage IDE integrations and show status |
+| Tools | `/ide` | Manage IDE integrations and show status (see below) |
 | Tools | `/vim` | Toggle between Vim and Normal editing modes |
 | Security | `/permissions` | Manage allow & deny tool permission rules |
 | Security | `/sandbox` | Configure sandbox mode |
@@ -178,6 +178,21 @@ Manages Claude Code plugins — shareable packages that bundle commands, agents,
 - Share your Claude setup with teammates
 - Install community extensions
 - Package project-specific tooling
+
+### About `/ide`
+
+Shows status and manages IDE integrations. Claude Code can connect to editors for richer context and inline diffs.
+
+**Supported IDEs:**
+- VS Code, Cursor, Windsurf, VSCodium (extension or legacy CLI)
+- JetBrains IDEs (plugin from Marketplace)
+
+**What integration provides:**
+- Share current file selection with Claude
+- Display diffs in editor instead of terminal
+- Access lint/syntax errors for better context
+
+**Activation:** Runs automatically when you launch `claude` from your IDE's integrated terminal.
 
 ## Quick Reference
 
