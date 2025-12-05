@@ -8,11 +8,18 @@
 
 | Key | What it does | Details | Example |
 |-----|--------------|---------|---------|
-| `!` | Bash mode | Execute shell commands directly | `!git push` |
 | `/` | Commands | Built-in (see below) and custom (`claude/commands/`) | `/review` |
 | `@` | File paths | Reference files for Claude to read | `@README.md` |
 | `#` | Memorize | Save facts for future sessions in `~/.claude/memory/` | `# always run tests before commit` |
-| `&` | Background | Run commands in background | `&./itsame` |
+
+#### `!` vs `&`
+
+| | `!` Bash mode | `&` Background |
+|---|---|---|
+| **Execution** | Runs immediately, blocks until done | Runs in background, returns immediately |
+| **Claude** | Bypasses Claude entirely | Claude tracks it via `/tasks` |
+| **Use case** | Quick commands you want to see output | Long-running processes (servers, tests) |
+| **Example** | `!git status` | `&npm run dev` |
 
 ### Keyboard Shortcuts
 
