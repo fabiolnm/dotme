@@ -33,15 +33,16 @@ Your `.me` becomes your **developer identity**:
 
 ## Quick Start
 
-```bash
-# Clone your .me profile
-git clone git@github.com:<username>/dotme.git ~/.me
+**1. Create your own repo from the template**
 
-# Activate profile (creates symlinks + backups)
+[![Use this template](archive/template.png)](https://github.com/letsago-dev/dotme)
+
+**2. Clone and activate**
+
+```bash
+git clone git@github.com:<your-username>/<your-repo-name>.git ~/.me
 cd ~/.me
 ./itsame
-
-# Done! Your environment is configured
 ```
 
 ## Structure
