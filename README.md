@@ -36,80 +36,53 @@ Your `.me` becomes your **developer identity**:
 First, [fork letsago-dev/dotme](https://github.com/letsago-dev/dotme/fork) on GitHub.
 
 ```bash
-# 1. Clone your fork
+# 1. Clone your fork (main branch stays aligned with upstream)
 git clone git@github.com:YOUR_USERNAME/dotme.git ~/.dotme
 cd ~/.dotme
 
 # 2. Add upstream for updates
-git remote add upstream https://github.com/letsago-dev/dotme.git
+git remote add upstream git@github.com:letsago-dev/dotme.git
 
-# 3. Create worktree for personal avatar
+# 3. Create avatar branch as worktree at ~/.me
 git worktree add -b avatar ~/.me
 
-# 4. Activate
-cd ~/.me && ./itsame
-
-# 5. Set up tracking (once)
+# 4. Push avatar branch and set as GitHub default
 git push -u origin avatar
+gh repo edit YOUR_USERNAME/dotme --default-branch avatar  # or change in GitHub Settings > Branches
+
+# 5. Activate
+cd ~/.me && ./itsame
 ```
 
-See [Staying in Sync with Upstream](#staying-in-sync-with-upstream) for the full workflow.
+**Two directories, two purposes:**
+- `~/.dotme` (main) → stays aligned with upstream, for clean PRs
+- `~/.me` (avatar) → your customizations, GitHub default branch
 
-## Staying in Sync with Upstream
-
-Use **git worktrees** to maintain both a clean upstream copy and your personal customizations.
-
-```
-       letsago/dotme                         username/dotme
-       (upstream)                            (origin - your fork)
-             |                                       ^
-             |                                       |
-             | git pull upstream main                | git push
-             |                                       |
-             v                                       |
-         +-----------------------------------------------+
-         | ~/.dotme (main)          ~/.me (avatar)       |
-         |   * Contributing back      * Your plugins     |
-         |   * Feature branches       * Your commands    |
-         |                            * Your configs     |
-         +------------------------>----------------------+
-                               git merge main
-```
-
-### Working on Your Avatar
-
-```bash
-cd ~/.me
-
-# Edit your configs
-# claude/, config/, plugins/
-
-# Push your preferences
-git push
-```
-
-### Receiving Updates
+## Receiving Updates
 
 When letsago/dotme has improvements you want:
 
 ```bash
-# 1. Sync fork's main with upstream
+# 1. Sync main with upstream
 cd ~/.dotme
+git checkout main
 git pull upstream main
 git push
 
-# 2. Merge into avatar
+# 2. Merge into your avatar
 cd ~/.me
 git merge main
 git push
 ```
 
-### Contributing Back
+## Contributing Back
 
-If you create something useful for everyone:
+Feature branches come from `main` (not avatar), so PRs only contain your contribution:
 
 ```bash
 cd ~/.dotme
+git checkout main
+git pull upstream main
 
 # Create feature branch
 git checkout -b feature/my-improvement
@@ -118,15 +91,8 @@ git checkout -b feature/my-improvement
 git push -u origin feature/my-improvement
 
 # Open PR from your fork to letsago-dev/dotme
+git checkout main
 ```
-
-### Why Worktrees?
-
-| Approach | Receive Updates | Personal Customizations | Contribute Back |
-|----------|-----------------|------------------------|-----------------|
-| **Template repo** | ❌ Disconnected | ✅ Yes | ❌ No upstream |
-| **Single clone** | ⚠️ Conflicts | ⚠️ Conflicts | ⚠️ Mixed commits |
-| **Worktrees** | ✅ Clean pull | ✅ Separate dir | ✅ Clean PR |
 
 ## Structure
 
