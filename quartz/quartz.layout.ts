@@ -3,11 +3,7 @@ import * as Component from "./quartz/components"
 
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [
-    Component.PageTitle(),
-    Component.Spacer(),
-    Component.Darkmode(),
-  ],
+  header: [],
   afterBody: [
     Component.RecentNotes({
       title: " ",
@@ -34,9 +30,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(),
     Component.TagList(),
   ],
-  left: [],
-  right: [
+  left: [
+    Component.PageTitle(),
     Component.Search(),
+    Component.Darkmode(),
+  ],
+  right: [
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
@@ -45,6 +44,10 @@ export const defaultContentPageLayout: PageLayout = {
 
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
-  left: [],
-  right: [Component.Search()],
+  left: [
+    Component.PageTitle(),
+    Component.Search(),
+    Component.Darkmode(),
+  ],
+  right: [],
 }

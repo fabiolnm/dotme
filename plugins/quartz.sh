@@ -32,6 +32,7 @@ fi
 # Copy custom configs
 if [[ -d "$PROFILE_DIR/quartz" ]]; then
     cp "$PROFILE_DIR/quartz/"*.ts "$QUARTZ_DIR/" 2>/dev/null || true
+    cp "$PROFILE_DIR/quartz/"*.scss "$QUARTZ_DIR/quartz/styles/" 2>/dev/null || true
 fi
 
 # Symlink content to garden
