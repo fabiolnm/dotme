@@ -20,7 +20,7 @@ done
 mkdir -p "$HOME/.claude"
 for item in commands skills agents prompts hooks CLAUDE.md; do
     if [[ -e "$PROFILE_DIR/claude/$item" ]]; then
-        ln -sf "$PROFILE_DIR/claude/$item" "$HOME/.claude/$item"
+        ln -sfn "$PROFILE_DIR/claude/$item" "$HOME/.claude/$item"
     fi
 done
 

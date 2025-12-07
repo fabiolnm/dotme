@@ -15,6 +15,6 @@ if [[ -d "$HOME/.iterm" ]] && [[ ! -L "$HOME/.iterm" ]] && [[ ! -d "$BACKUP_DIR/
 fi
 
 # Symlink iTerm directory
-ln -sf "$PROFILE_DIR/iterm" "$HOME/.iterm"
+ln -sfn "$PROFILE_DIR/iterm" "$HOME/.iterm"
 
 echo "✓ iTerm configured"

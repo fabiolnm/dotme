@@ -16,6 +16,6 @@ fi
 
 # Symlink lvim directory
 mkdir -p "$HOME/.config"
-ln -sf "$PROFILE_DIR/config/lvim" "$HOME/.config/lvim"
+ln -sfn "$PROFILE_DIR/config/lvim" "$HOME/.config/lvim"
 
 echo "✓ LunarVim configured"
