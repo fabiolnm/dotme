@@ -1,0 +1,84 @@
+@use "./base.scss";
+
+// Header layout
+header {
+  gap: 1rem !important;
+}
+
+.page > #quartz-body .page-header {
+  margin: 0 !important;
+}
+
+// Mobile layout: search and darkmode align right
+@media screen and (max-width: 800px) {
+  .sidebar.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sidebar.left .page-title {
+    flex-grow: 1;
+  }
+
+  .sidebar.left .search,
+  .sidebar.left .darkmode {
+    flex-grow: 0;
+  }
+}
+
+// Larger font sizes
+html {
+  font-size: 18px;
+}
+
+h1, article > h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+// Search icon only
+.search button.search-button {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.search button.search-button p {
+  display: none;
+}
+
+// Header icon sizes
+.social-links {
+  padding-top: 4px;
+}
+
+.social-links svg {
+  width: 32px;
+  height: 32px;
+}
+
+.search button.search-button svg {
+  width: 28px;
+  height: 28px;
+}
+
+button.darkmode {
+  height: 32px;
+}
+
+button.darkmode svg {
+  width: 28px !important;
+  height: 28px !important;
+  top: 2px;
+}
