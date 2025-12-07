@@ -29,6 +29,11 @@ if [[ ! -d "$QUARTZ_DIR/node_modules" ]]; then
     cd "$QUARTZ_DIR" && npm install
 fi
 
+# Copy custom configs
+if [[ -d "$PROFILE_DIR/quartz" ]]; then
+    cp "$PROFILE_DIR/quartz/"*.ts "$QUARTZ_DIR/" 2>/dev/null || true
+fi
+
 # Symlink content to garden
 if [[ ! -L "$QUARTZ_DIR/content" ]]; then
     rm -rf "$QUARTZ_DIR/content"
