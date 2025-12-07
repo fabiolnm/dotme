@@ -9,12 +9,12 @@ Generate a polished journal entry from today's session captures.
 3. Synthesize the session captures into a single cohesive journal entry
 4. Follow the voice, style, and structure from the skill
 5. Add appropriate wikilinks to technical terms
-6. Save to `~/blog/content/` with format `YYYY-MM-DD-slug.md`
+6. Save to `~/.me/garden/entries/` with format `YYYY-MM-DD-slug.md`
 7. Set `draft: true` in frontmatter for review
 
 ## Output Location
 
-Save the generated entry to: `~/blog/content/YYYY-MM-DD-descriptive-slug.md`
+Save the generated entry to: `~/.me/garden/entries/YYYY-MM-DD-descriptive-slug.md`
 
 The slug should be derived from the title (lowercase, hyphenated).
 

@@ -1,26 +1,34 @@
-# Publish Journal to Web
+# Publish Garden to Web
 
-Deploy the blog to fabioluiz.dev via GitHub Pages.
+Build and deploy the digital garden to fabioluiz.dev.
 
 ## Instructions
 
-1. Change to the blog directory: `cd ~/blog`
-2. Check git status for changes
-3. Stage all changes: `git add .`
-4. Commit with message: `git commit -m "Publish: $(date +%Y-%m-%d)"`
-5. Push to main: `git push origin main`
+1. Change to Quartz directory: `cd ~/.me/quartz`
+2. Build the site: `npx quartz build`
+3. The built site is in `~/.me/quartz/public/`
 
-GitHub Actions will automatically:
-- Build the Quartz static site
-- Deploy to GitHub Pages
-- Update fabioluiz.dev
+## Deployment Options
+
+### Option A: Push to GitHub (recommended)
+If using GitHub Pages with the journal repo:
+```bash
+cd ~/.me
+git add garden/
+git commit -m "Garden update: $(date +%Y-%m-%d)"
+git push
+```
+GitHub Actions builds and deploys automatically.
+
+### Option B: Manual deploy
+Copy `~/.me/quartz/public/` to your hosting.
 
 ## Pre-flight Checks
 
 Before publishing, verify:
 - [ ] No entries with `draft: true` that should not be published
 - [ ] All wikilinks resolve to existing pages
-- [ ] Images are in `static/images/`
+- [ ] Run `npx quartz build` locally to check for errors
 
 ## After Publishing
 

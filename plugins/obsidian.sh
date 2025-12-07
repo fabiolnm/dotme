@@ -9,4 +9,7 @@ fi
 # Create journal drafts directory for Claude Code integration
 mkdir -p "$HOME/.claude/journal/drafts"
 
-echo "✓ Obsidian configured"
+# Garden directory is at ~/.me/garden (managed by quartz.sh)
+# Obsidian opens this as a vault
+
+echo "✓ Obsidian configured (vault: ~/.me/garden)"
