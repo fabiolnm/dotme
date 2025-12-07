@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-QUARTZ_DIR="$PROFILE_DIR/quartz"
+QUARTZ_DIR="$HOME/.quartz"
 GARDEN_DIR="$HOME/garden"
 
 # Clone garden repo if not present
@@ -32,7 +32,7 @@ fi
 # Symlink content to garden
 if [[ ! -L "$QUARTZ_DIR/content" ]]; then
     rm -rf "$QUARTZ_DIR/content"
-    ln -sf "$GARDEN_DIR" "$QUARTZ_DIR/content"
+    ln -sfn "$GARDEN_DIR" "$QUARTZ_DIR/content"
 fi
 
 echo "✓ Quartz configured (content symlinked to $GARDEN_DIR)"
