@@ -18,6 +18,7 @@ export const sharedPageComponents: SharedLayout = {
       linkToMore: "entries/" as any,
       filter: (f) => f.slug !== "index",
     }),
+    Component.Graph(),
   ],
   footer: Component.Footer({
     links: {},
