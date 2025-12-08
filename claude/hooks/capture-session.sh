@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-DRAFTS_DIR="$HOME/.claude/journal/drafts"
+DRAFTS_DIR="$HOME/garden/drafts"
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H%M%S)
 DRAFT_FILE="$DRAFTS_DIR/${DATE}_${TIME}.md"

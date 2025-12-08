@@ -4,7 +4,7 @@ Show all captured session drafts waiting to be turned into journal entries.
 
 ## Instructions
 
-1. List files in `~/.claude/journal/drafts/`
+1. List files in `~/garden/drafts/`
 2. Show date, project, and preview of each draft
 3. Indicate which have not yet been processed
 
