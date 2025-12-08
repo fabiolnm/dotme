@@ -29,10 +29,20 @@ if [[ ! -d "$QUARTZ_DIR/node_modules" ]]; then
     cd "$QUARTZ_DIR" && npm install
 fi
 
-# Copy custom configs
+# Symlink custom configs (idempotent)
 if [[ -d "$PROFILE_DIR/quartz" ]]; then
-    cp "$PROFILE_DIR/quartz/"*.ts "$QUARTZ_DIR/" 2>/dev/null || true
-    cp "$PROFILE_DIR/quartz/"*.scss "$QUARTZ_DIR/quartz/styles/" 2>/dev/null || true
+    for f in "$PROFILE_DIR/quartz/"*.ts; do
+        [[ -e "$f" ]] || continue
+        target="$QUARTZ_DIR/$(basename "$f")"
+        [[ -L "$target" && "$(readlink "$target")" == "$f" ]] && continue
+        ln -sf "$f" "$QUARTZ_DIR/"
+    done
+    for f in "$PROFILE_DIR/quartz/"*.scss; do
+        [[ -e "$f" ]] || continue
+        target="$QUARTZ_DIR/quartz/styles/$(basename "$f")"
+        [[ -L "$target" && "$(readlink "$target")" == "$f" ]] && continue
+        ln -sf "$f" "$QUARTZ_DIR/quartz/styles/"
+    done
 fi
 
 # Symlink content to garden
