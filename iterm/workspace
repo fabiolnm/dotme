@@ -1,0 +1,98 @@
+#!/bin/bash
+# Opens a 6-pane iTerm2 development workspace
+# Usage: workspace /path/to/project
+#
+# Layout (66% x 66% lvim):
+# | lvim (2x2)   | claude1 |
+# | lvim         | claude2 |
+# | fish1 | fish2| fish3   |
+#
+# Requires: Accessibility permission for iTerm2
+#   System Settings > Privacy & Security > Accessibility > iTerm (enable)
+#   This allows the script to resize panes via keyboard shortcuts.
+
+DIR="${1:-.}"
+DIR=$(cd "$DIR" 2>/dev/null && pwd) || { echo "Error: Directory '$1' not found"; exit 1; }
+
+osascript <<EOF
+tell application "iTerm"
+    activate
+
+    -- Create new window
+    create window with default profile
+
+    tell current window
+        set vimPane to current session
+
+        -- Create layout: split order matters for getting correct proportions
+        -- iTerm terminology: "horizontally" = top/bottom, "vertically" = left/right
+
+        -- Step 1: Split off bottom row (horizontal divider)
+        tell vimPane
+            set fish1 to (split horizontally with default profile)
+        end tell
+
+        -- Step 2: Split bottom row into fish1 | fish2 | fish3 (vertical dividers)
+        tell fish1
+            set fish2 to (split vertically with default profile)
+        end tell
+        tell fish2
+            set fish3 to (split vertically with default profile)
+        end tell
+
+        -- Step 3: Split top area into vim | claude column (vertical divider)
+        tell vimPane
+            set claude1 to (split vertically with default profile)
+        end tell
+
+        -- Step 4: Split claude column into claude1 | claude2 (horizontal divider)
+        tell claude1
+            set claude2 to (split horizontally with default profile)
+        end tell
+
+        -- Run commands in each pane
+        tell vimPane
+            write text "cd '$DIR' && lvim"
+        end tell
+        tell claude1
+            write text "cd '$DIR' && claude"
+        end tell
+        tell claude2
+            write text "cd '$DIR' && claude"
+        end tell
+        tell fish1
+            write text "cd '$DIR'"
+        end tell
+        tell fish2
+            write text "cd '$DIR'"
+        end tell
+        tell fish3
+            write text "cd '$DIR'"
+        end tell
+
+        -- Select vim pane for resizing
+        select vimPane
+    end tell
+end tell
+
+-- Resize vim pane to 66% width and 66% height using keyboard shortcuts
+-- Requires Accessibility permission for iTerm2
+tell application "System Events"
+    tell process "iTerm2"
+        set frontmost to true
+        delay 0.2
+
+        -- Expand vim pane width (Cmd+Ctrl+Right)
+        repeat 13 times
+            key code 124 using {command down, control down}
+            delay 0.03
+        end repeat
+
+        -- Expand vim pane height (Cmd+Ctrl+Down)
+        repeat 8 times
+            key code 125 using {command down, control down}
+            delay 0.03
+        end repeat
+    end tell
+end tell
+EOF
