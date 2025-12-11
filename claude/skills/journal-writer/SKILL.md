@@ -15,7 +15,7 @@ Use this frontmatter:
 
 ```yaml
 ---
-title: "Descriptive Title About What Was Learned"
+title: "LinkedIn-Attractive Title"
 date: YYYY-MM-DD
 tags:
   - relevant-tag
@@ -24,8 +24,37 @@ draft: false
 ---
 ```
 
-Then structure content as:
-1. Brief intro paragraph
+### Title Guidelines
+
+Titles should be LinkedIn-attractive: professional yet engaging, with a hint of personality. They should promise value without being clickbait.
+
+**Good patterns:**
+- Outcome-focused: "Stacked PRs changed how I ship code"
+- Bold claims: "The right way to authenticate with AWS"
+- Concrete value: "From Docker build to AWS in 5 commands"
+- Playful but professional: "Putting Claude Code minions to work"
+- Problem-solution: "One command to launch my entire dev environment"
+
+**Avoid:**
+- Generic how-to: "How to use Git worktrees"
+- Dry descriptions: "AWS IAM Identity Center setup"
+- Clickbait: "You won't believe this Git trick"
+- Jargon soup: "Implementing CI/CD pipeline optimization"
+- Title Case: "A Single Repo For All My Developer Config" (use sentence case instead)
+
+### Intro Paragraph
+
+The intro must align with and deliver on the title's promise. Keep it to 2-3 sentences that:
+- Reinforce the title's hook
+- Set up the problem or transformation
+- Give readers a reason to continue
+
+**Example:** For "How I Built a Blog That Writes Itself":
+> My blog writes itself. Every Claude Code session gets captured automatically. When I'm ready, a command synthesizes those captures into polished journal entries. I just review and publish.
+
+### Content Structure
+
+1. Intro paragraph (aligned with title)
 2. ## The Problem - what was I trying to solve?
 3. ## What I Learned - technical content with code
 4. ## Key Takeaways - bullet points of main insights
