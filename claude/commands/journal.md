@@ -1,26 +1,46 @@
 # Generate Journal Entry
 
-Generate a polished journal entry from today's session captures.
+Generate a polished journal entry from the journal plan.
 
-## Instructions
+## Usage
 
-1. Read all draft files from `~/garden/drafts/` for today's date
-2. Load the journal-writer skill from `~/.me/claude/skills/journal-writer/SKILL.md`
-3. Synthesize the session captures into a single cohesive journal entry
-4. Follow the voice, style, and structure from the skill
-5. Add appropriate wikilinks to technical terms
-6. Save to `~/garden/entries/` with format `YYYY-MM-DD-slug.md`
-7. Set `draft: true` in frontmatter for review
+```
+/journal N
+```
+
+Where N is the entry number from the journal plan.
+
+## Execution
+
+**CRITICAL**: This command MUST run in a subagent with fresh context to avoid exhausting the main conversation's context window.
+
+Use the Task tool with:
+- `subagent_type`: "general-purpose"
+- `prompt`: Include all instructions below plus the entry number N
+
+## Subagent Instructions
+
+The subagent should:
+
+1. Read `~/garden/drafts/YYYYMMDD-journal-plan.md` (today's date)
+2. Find Entry N in the plan
+3. Read only the drafts listed for that entry
+4. Load the journal-writer skill from `~/.me/claude/skills/journal-writer/SKILL.md`
+5. Synthesize those drafts into a focused journal entry
+6. Follow the voice, style, and structure from the skill
+7. Add appropriate wikilinks to technical terms
+8. Save to `~/garden/entries/YYYY-MM-DD-slug.md`
+9. Set `draft: true` in frontmatter for review
+10. Run `pre-commit run mdformat --files ~/garden/entries/YYYY-MM-DD-slug.md` to format the entry
 
 ## Output Location
 
 Save the generated entry to: `~/garden/entries/YYYY-MM-DD-descriptive-slug.md`
 
-The slug should be derived from the title (lowercase, hyphenated).
+The slug should be derived from the entry title (lowercase, hyphenated).
 
 ## After Generation
 
-- Open in Obsidian to review
-- Check graph connections
-- Set `draft: false` when ready to publish
-- Run `/publish` to deploy
+1. Show the entry path
+2. Move entry N's draft files from `~/garden/drafts/gardening/` to `~/garden/drafts/archive/`
+3. Return summary: entry title, path, and suggestion to run `/publish`
