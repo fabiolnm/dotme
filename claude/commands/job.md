@@ -43,9 +43,14 @@ Parse the input to extract:
 12. **Job Type** - Employment classification: w2, 1099, c2c, unknown (if not specified)
 13. **Priority** - How interested you are: high, medium, low (default: medium)
 14. **Seniority Level** - junior, intermediate, senior, staff, principal, lead, manager, director
-15. **Tech Stack** - Map to available tags (semicolon-separated): react, typescript, javascript, python, ruby, rails, nodejs, go, rust, java, kotlin, swift, csharp, dotnet, php, graphql, rest, grpc, postgresql, mysql, mongodb, redis, elasticsearch, kafka, aws, gcp, azure, docker, kubernetes, terraform, react_native, vuejs, angular, nextjs, django, fastapi, spring, snowflake, dbt, looker, datadog, cicd
-16. **Compensation Min** - Lower bound of yearly range in USD (hourly rate × 2080 for full-time)
-17. **Compensation Max** - Upper bound of yearly range in USD
+15. **Tech Stack** - Map to available tags (semicolon-separated): react, typescript, javascript, python, ruby, rails, nodejs, go, rust, java, kotlin, swift, csharp, dotnet, php, graphql, rest, grpc, postgresql, mysql, mongodb, redis, elasticsearch, kafka, aws, gcp, azure, docker, kubernetes, terraform, react_native, vuejs, angular, nextjs, django, fastapi, spring, snowflake, dbt, looker, datadog, cicd, css
+
+   **Adding New Tech Stack Tags:** If the job requires a technology not in this list:
+   1. Use `hubspot-get-property` to fetch current `tech_stack` options for deals
+   2. Use `hubspot-update-property` to add the new option (include ALL existing options plus the new one, maintaining alphabetical order by value)
+   3. Then proceed with creating the deal using the new tag
+16. **Compensation Min** - Lower bound of yearly range in CAD (hourly rate × 2080 for full-time)
+17. **Compensation Max** - Upper bound of yearly range in CAD
 18. **Compensation Details** - Raw compensation info, hourly rates, bonuses, equity mentions
 19. **Description** - Brief summary of the role and responsibilities
 20. **Last Activity Date** - Date of the most recent interaction (today if new outreach)
@@ -79,14 +84,16 @@ Based on the context of the message, determine the appropriate stage:
 3. Web search for: `[Job Title] [Location] contract rate 2024` (for contract roles)
 
 Set:
-- `compensation_min` - Lower bound of yearly salary in USD
-- `compensation_max` - Upper bound of yearly salary in USD
+- `compensation_min` - Lower bound of yearly salary in CAD
+- `compensation_max` - Upper bound of yearly salary in CAD
 - `compensation_details` - Include:
   - Source of estimate (e.g., "Estimated from levels.fyi" or raw info if provided)
   - Level breakdown if available (L3-L7 or equivalent company levels with salary bands)
   - Hourly rate if contract role
+  - If compensation is provided in USD, convert to CAD (use current exchange rate ~1.44)
 
 For hourly contract rates, convert to annual: hourly × 2080 = yearly equivalent.
+For USD amounts, convert to CAD before storing.
 
 ### Step 4: Search for Existing Records
 
@@ -278,7 +285,7 @@ After creating all records, output a formatted summary:
 | Job Type | [W2/1099/C2C/Unknown] |
 | Seniority | [Level] |
 | Priority | [High/Medium/Low] |
-| Compensation | [Min - Max or "Not specified"] |
+| Compensation | $[Min] - $[Max] CAD or "Not specified" |
 | Last Activity | [Date] |
 
 **Tech Stack:** [technologies]
