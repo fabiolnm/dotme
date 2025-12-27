@@ -35,9 +35,11 @@ You are a job-fit analyst. Score how well the candidate matches the job requirem
 |-----------|-----------|----------|
 | Title Match | 2.0 | Job title alignment with experience |
 | Tech Stack Overlap | 3.0 | Required skills present in profile |
-| Years of Experience | 2.0 | Experience level matches requirements |
-| Industry Relevance | 1.5 | Prior work in similar industries |
-| Seniority Alignment | 1.5 | Level matches (Senior, Staff, Lead, etc.) |
+| Years of Experience | 1.0 | Experience level matches requirements |
+| Industry Relevance | 1.0 | Prior work in similar industries |
+| Seniority Alignment | 1.0 | Level matches (Senior, Staff, Lead, etc.) |
+| Compensation Fit | 1.0 | Salary within expected range |
+| Work Arrangement | 1.0 | Remote/hybrid/onsite preference |
 | **Total** | **10.0** | |
 
 #### 2.1 Title Match (0-2)
@@ -51,24 +53,49 @@ You are a job-fit analyst. Score how well the candidate matches the job requirem
 - Check each against LinkedIn profile skills and experience
 - Score = (matched / total required) × 3.0
 
-#### 2.3 Years of Experience (0-2)
+#### 2.3 Years of Experience (0-1)
 - Calculate years from LinkedIn work history
 - Compare to job requirement
-- Meets or exceeds: 2.0
-- Within 1-2 years: 1.5
-- Within 3-4 years: 1.0
-- More than 4 years gap: 0.5
+- Meets or exceeds: 1.0
+- Within 1-2 years: 0.75
+- Within 3-4 years: 0.5
+- More than 4 years gap: 0.25
 
-#### 2.4 Industry Relevance (0-1.5)
-- Same industry: 1.5
-- Related industry (e.g., fintech → payments): 1.0
-- Different but transferable: 0.5
+#### 2.4 Industry Relevance (0-1)
+- Same industry: 1.0
+- Related industry (e.g., fintech → payments): 0.5
+- Different but transferable: 0.25
 - Unrelated: 0
 
-#### 2.5 Seniority Alignment (0-1.5)
-- Exact match: 1.5
-- One level off: 1.0
-- Two levels off: 0.5
+#### 2.5 Seniority Alignment (0-1)
+- Exact match: 1.0
+- One level off: 0.5
+- Two levels off: 0.25
+
+#### 2.6 Compensation Fit (0-1.0)
+
+**Ask user:** "What is your expected salary range for this role? (e.g., $140,000 - $230,000 CAD)"
+
+Compare job's compensation (from job description or COMPANY_RESEARCH.md) against user's expected range:
+- Within range: 1.0
+- Within 10% of range boundaries: 0.5
+- Outside range by >10%: 0
+- Not disclosed: 0 (compensation transparency is expected)
+
+**Note:** Convert USD to CAD if needed (use approximate rate 1 USD = 1.35 CAD).
+
+#### 2.7 Work Arrangement (0-1.0)
+
+**Ask user:** "What is your work arrangement preference? (remote / hybrid max X days / onsite acceptable)"
+
+Compare job's work arrangement (from job description or COMPANY_RESEARCH.md) against user preference:
+- Matches preference: 1.0
+- Acceptable compromise (e.g., hybrid within stated max): 0.75
+- Outside preference but tolerable: 0.25
+- Deal-breaker (e.g., fully onsite when user specified no onsite): 0 (⚠️ flag)
+- Not specified: 0 (work arrangement transparency is expected)
+
+**If deal-breaker:** Add warning in analysis output regardless of other scores.
 
 ### Step 3: Create HubSpot Properties (if not exist)
 
@@ -79,9 +106,11 @@ Properties to create:
 - job_fit_score (number, 0-10)
 - title_match_score (number, 0-2)
 - tech_match_score (number, 0-3)
-- experience_match_score (number, 0-2)
-- industry_match_score (number, 0-1.5)
-- seniority_match_score (number, 0-1.5)
+- experience_match_score (number, 0-1)
+- industry_match_score (number, 0-1)
+- seniority_match_score (number, 0-1)
+- compensation_fit_score (number, 0-1)
+- work_arrangement_score (number, 0-1)
 ```
 
 Use `hubspot-get-property` to check existence, then `hubspot-create-property` if needed.
@@ -101,7 +130,9 @@ Use `hubspot-batch-update-objects` to store scores on the deal:
       "tech_match_score": "[score]",
       "experience_match_score": "[score]",
       "industry_match_score": "[score]",
-      "seniority_match_score": "[score]"
+      "seniority_match_score": "[score]",
+      "compensation_fit_score": "[score]",
+      "work_arrangement_score": "[score]"
     }
   }]
 }
@@ -126,9 +157,11 @@ Generate `JOB_FIT_ANALYSIS.md`:
 |-----------|-------|-----|-------|
 | Title Match | X.X | 2.0 | [explanation] |
 | Tech Stack Overlap | X.X | 3.0 | [X/Y skills matched] |
-| Years of Experience | X.X | 2.0 | [explanation] |
-| Industry Relevance | X.X | 1.5 | [explanation] |
-| Seniority Alignment | X.X | 1.5 | [explanation] |
+| Years of Experience | X.X | 1.0 | [explanation] |
+| Industry Relevance | X.X | 1.0 | [explanation] |
+| Seniority Alignment | X.X | 1.0 | [explanation] |
+| Compensation Fit | X.X | 1.0 | [explanation] |
+| Work Arrangement | X.X | 1.0 | [explanation] |
 
 ## Tech Stack Analysis
 
@@ -200,9 +233,11 @@ Create a note on the deal using `hubspot-create-engagement`:
 |-----------|-------|
 | Title Match | X.X/2.0 |
 | Tech Stack | X.X/3.0 |
-| Experience | X.X/2.0 |
-| Industry | X.X/1.5 |
-| Seniority | X.X/1.5 |
+| Experience | X.X/1.0 |
+| Industry | X.X/1.0 |
+| Seniority | X.X/1.0 |
+| Compensation | X.X/1.0 |
+| Work Arrangement | X.X/1.0 |
 
 **Files Created:**
 - ~/job-applications/[company]/JOB_FIT_ANALYSIS.md
