@@ -4,8 +4,8 @@ Score your resume against ATS (Applicant Tracking System) criteria and job requi
 
 ## Usage
 ```
-/ats
-/ats @jobrank-report.pdf
+/prep-for-job/ats
+/prep-for-job/ats @jobrank-report.pdf
 ```
 
 ## Input
@@ -178,7 +178,7 @@ Top 3 improvements to make:
 2. [Second most impactful]
 3. [Third most impactful]
 
-After making changes, run `/ats` again to re-score.
+After making changes, run `/prep-for-job/ats` again to re-score.
 ```
 
 **If score >= 8.5:**

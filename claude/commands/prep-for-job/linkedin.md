@@ -4,7 +4,7 @@ Verify your LinkedIn profile reflects real achievements and skills surfaced duri
 
 ## Usage
 ```
-/linkedin @linkedin-export.pdf
+/prep-for-job/linkedin @linkedin-export.pdf
 ```
 
 ## Input

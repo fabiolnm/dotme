@@ -4,7 +4,7 @@ Calculate job-fit score comparing your profile against a job opportunity.
 
 ## Usage
 ```
-/job-fit @linkedin-export.pdf
+/prep-for-job/fit @linkedin-export.pdf
 ```
 
 ## Input

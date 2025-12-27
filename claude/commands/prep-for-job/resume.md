@@ -4,7 +4,7 @@ Generate an ATS-optimized resume tailored to a specific job opportunity.
 
 ## Usage
 ```
-/resume @linkedin-export.pdf
+/prep-for-job/resume @linkedin-export.pdf
 ```
 
 ## Input

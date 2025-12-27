@@ -4,7 +4,7 @@ Parse a job opportunity and add it to the HubSpot Job Search Pipeline with full 
 
 ## Usage
 ```
-/job JOB_DESCRIPTION
+/prep-for-job/parse JOB_DESCRIPTION
 ```
 
 ## Input

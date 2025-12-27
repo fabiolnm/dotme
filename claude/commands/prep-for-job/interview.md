@@ -4,7 +4,7 @@ Create a comprehensive 1-week interview preparation plan tailored to the specifi
 
 ## Usage
 ```
-/interview-package
+/prep-for-job/interview
 ```
 
 ## Input

@@ -4,8 +4,8 @@ Generate a personalized cover letter for a job application.
 
 ## Usage
 ```
-/cover-letter
-/cover-letter --force
+/prep-for-job/cover-letter
+/prep-for-job/cover-letter --force
 ```
 
 ## Input
