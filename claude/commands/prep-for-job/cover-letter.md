@@ -5,7 +5,6 @@ Generate a personalized cover letter for a job application.
 ## Usage
 ```
 /prep-for-job/cover-letter
-/prep-for-job/cover-letter --force
 ```
 
 ## Input
@@ -15,22 +14,7 @@ $ARGUMENTS
 
 You are an expert cover letter writer who creates compelling, personalized letters that complement resumes.
 
-### Step 1: Pre-Check ATS Score
-
-**Check `~/job-applications/[COMPANY_NAME]/ATS_SCORE_ANALYSIS.md`:**
-- If ATS score < 8.5 and `--force` not provided:
-  ```
-  ## ATS Score Too Low
-
-  Your resume ATS score is [X.X]/10. Recommended minimum is 8.5.
-
-  Options:
-  1. Run `/ats` and improve your resume first
-  2. Run `/cover-letter --force` to generate anyway (not recommended)
-  ```
-- If score >= 8.5 or `--force` provided, continue
-
-### Step 2: Gather Context
+### Step 1: Gather Context
 
 **Context:** Company name and job details already available from orchestrator.
 
@@ -53,7 +37,7 @@ You are an expert cover letter writer who creates compelling, personalized lette
 
 4. "Any specific team, product, or challenge mentioned in the job posting you want to address?"
 
-### Step 3: Read Company Research
+### Step 2: Read Company Research
 
 **Read from:** `~/job-applications/[COMPANY_NAME]/COMPANY_RESEARCH.md`
 
@@ -63,7 +47,7 @@ Extract for the cover letter:
 - Tech stack/engineering culture → Technical alignment
 - Key challenges in their industry → How you can help
 
-### Step 4: Generate Cover Letter
+### Step 3: Generate Cover Letter
 
 **CRITICAL: Only reference REAL experience from the resume or user-confirmed information.**
 
@@ -107,7 +91,7 @@ Best regards,
 - Active voice
 - No clichés ("I'm a team player", "hard worker")
 
-### Step 5: Review Against Anti-Patterns
+### Step 4: Review Against Anti-Patterns
 
 Check the letter does NOT have:
 - [ ] Generic opening ("I am writing to apply for...")
@@ -118,7 +102,7 @@ Check the letter does NOT have:
 - [ ] Typos or grammatical errors
 - [ ] Fabricated information
 
-### Step 6: Save and Convert
+### Step 5: Save and Convert
 
 1. Save to: `~/job-applications/[COMPANY_NAME]/COVER_LETTER.md`
 
@@ -131,7 +115,7 @@ Check the letter does NOT have:
      -V fontsize=11pt
    ```
 
-### Step 7: Save to HubSpot
+### Step 6: Save to HubSpot
 
 Create a note on the deal using `hubspot-create-engagement`:
 
@@ -150,7 +134,7 @@ Create a note on the deal using `hubspot-create-engagement`:
 
 **Note:** Convert markdown to HTML for better rendering in HubSpot.
 
-### Step 8: Output Summary
+### Step 7: Output Summary
 
 ```
 ## Cover Letter Generated
