@@ -50,6 +50,8 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
 [Phone] | [Email] | linkedin.com/in/[handle] | [blog url]
 ```
 
+**REQUIRED: Blog URL** - If not in source materials, ALWAYS ask: "What is your blog/portfolio URL?"
+
 **Professional Title & Keywords:**
 ```
 ## [JOB TITLE MATCHING THE POSTING]
@@ -105,11 +107,12 @@ Bad: "Responsible for Ruby upgrades" (no STAR, no metrics)
 
 ### Step 4: Ask Clarifying Questions
 
-Before generating, ask about:
-1. Any recent projects not on LinkedIn?
-2. Specific AI/Claude Code achievements to highlight?
-3. Metrics for key accomplishments if not in LinkedIn?
-4. Any skills to emphasize or de-emphasize?
+Before generating, ALWAYS ask about:
+1. **Blog/portfolio URL** (REQUIRED - never skip this question)
+2. Any recent projects not on LinkedIn?
+3. Specific AI/Claude Code achievements to highlight?
+4. Metrics for key accomplishments if not in LinkedIn?
+5. Any skills to emphasize or de-emphasize?
 
 ### Step 5: Generate and Save
 
