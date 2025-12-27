@@ -97,28 +97,50 @@ Execute the `/prep-for-job/resume` workflow:
 
 ### Step 5: Score Against ATS
 
+**Optional: Calibrate algorithm first**
+
+Ask: "Do you have a Jobscan benchmark report? This improves scoring accuracy."
+
+If user provides Jobscan report:
+1. Execute `/prep-for-job/ats-calibrate @RESUME.md @jobscan-report.pdf`
+2. Calibrate compares Claude vs Jobscan scores
+3. If discrepant, edits `/ats` command to improve algorithm
+4. Re-runs scoring to verify accuracy improved
+
+```
+Calibration: Claude 72 vs Jobscan 65 (Delta: +7)
+→ Updating /ats algorithm...
+→ Re-scoring: Claude 66 vs Jobscan 65 (Delta: +1) ✓
+```
+
+**Then score the resume:**
+
 Execute the `/prep-for-job/ats` workflow:
-- Score resume (0-10) against ATS criteria
+- Score resume (0-100) using calibrated algorithm
+- Suggest resume improvements for missing keywords
 - Create `ATS_SCORE_ANALYSIS.md`
 
 **Checkpoint:** Show ATS score.
 
 ```
-ATS Score: [X.X]/10
+ATS Score: [XX]/100
+- Hard Skills: X issues
+- Soft Skills: X issues
+- Searchability: X issues
+- Recruiter Tips: X issues
 
-[If score < 8.5]
+[If score < 75]
 Top improvements needed:
-1. [Improvement 1]
-2. [Improvement 2]
-3. [Improvement 3]
+1. [Missing keyword 1]
+2. [Missing keyword 2]
+3. [Searchability fix]
 
 Would you like to:
 (a) Apply suggested improvements and re-score
-(b) Provide jobrank.ca benchmark for calibration
-(c) Continue anyway (not recommended)
+(b) Continue anyway (not recommended)
 ```
 
-**Loop until score >= 8.5 or user chooses to continue.**
+**Loop until score >= 75 or user chooses to continue.**
 
 ### Step 6: Generate Cover Letter
 
@@ -186,7 +208,7 @@ Execute the `/prep-for-job/linkedin` workflow:
 | Metric | Score |
 |--------|-------|
 | Job Fit | X.X/10 |
-| ATS | X.X/10 |
+| ATS | XX/100 |
 
 ### Files Generated
 ~/job-applications/[company]/
@@ -205,7 +227,7 @@ Execute the `/prep-for-job/linkedin` workflow:
 - [x] Job stored in CRM
 - [x] Company researched
 - [x] Fit analysis complete
-- [x] Resume optimized (ATS: X.X/10)
+- [x] Resume optimized (ATS: XX/100)
 - [x] Cover letter personalized
 - [x] Interview prep ready
 - [x] LinkedIn suggestions noted
