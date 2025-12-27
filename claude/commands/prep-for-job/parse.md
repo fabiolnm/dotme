@@ -224,11 +224,30 @@ Use `hubspot-batch-create-associations` to link records:
 }
 ```
 
-### Step 8: Log Conversation as Activities
+### Step 8: Log Activities
 
-Parse the input for individual messages and create NOTE engagements for each one. This logs the conversation in the HubSpot activity timeline.
+Use `hubspot-create-engagement` to log activities in the HubSpot timeline.
 
-Use `hubspot-create-engagement` for each message:
+#### 8a. Always Create Job Description Note
+
+Always create a note with the full job description so it's visible in the deal timeline:
+
+```json
+{
+  "type": "NOTE",
+  "ownerId": 78542821,
+  "associations": {
+    "dealIds": [DEAL_ID]
+  },
+  "metadata": {
+    "body": "<strong>Job Description</strong><br><br>[Full job description with <br> for line breaks]"
+  }
+}
+```
+
+#### 8b. Log Conversation Messages (if present)
+
+If the input contains conversation messages (recruiter outreach, back-and-forth DMs), create additional notes for each message:
 
 **Inbound message (from recruiter/company):**
 ```json
@@ -299,8 +318,26 @@ After creating all records, output a formatted summary:
 - **Recruiter Agency:** [Company Link](https://app-na2.hubspot.com/contacts/242288945/record/0-2/[AGENCY_ID]) (if applicable)
 
 ### Activities Logged
-- [X] inbound messages
-- [X] outbound messages
+- [1] job description note
+- [X] inbound messages (if any)
+- [X] outbound messages (if any)
+```
+
+### Step 10: Invoke Job-Fit Analysis
+
+After creating all HubSpot records, prompt user to run job-fit analysis:
+
+```
+## Next: Job Fit Analysis
+
+To calculate your fit score for this role, run:
+
+/job-fit @your-linkedin-export.pdf
+
+This will:
+- Score your match (0-10) across 5 criteria
+- Create ~/job-applications/[company]/JOB_FIT_ANALYSIS.md
+- Store scores in HubSpot for tracking
 ```
 
 ### Important Notes
