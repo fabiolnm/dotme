@@ -20,6 +20,9 @@ You are verifying LinkedIn accuracy - NOT optimizing for a specific job. LinkedI
 - If PDF export provided as argument, read it
 - If not provided, prompt: "Please provide your current LinkedIn PDF export"
 
+**Reference Profile:**
+- Read `~/job-applications/Profile.md` for the canonical profile structure and content
+
 **Context:** Company name already available from orchestrator.
 
 **Materials from This Workflow:**
@@ -48,6 +51,31 @@ Compare LinkedIn against what was discussed during the workflow. Look for:
 **CRITICAL: Only flag items that are TRUE and REAL - not job-specific embellishments.**
 
 ### Step 3: Generate Findings
+
+When generating update recommendations, follow these formatting rules:
+
+#### LinkedIn About Section Rules
+- **Character limit:** 2,600 maximum characters
+- **No leading blank spaces** on any line
+- **No markdown formatting** (no bold/italic markers)
+- **Use Unicode subscripts** where needed (e.g., CO₂)
+
+#### Bullet Point Style (STAR Methodology)
+Format experience bullets as: **Situation/Problem → Action → Result**
+
+Example:
+```
+- Addressed slow release cycles caused by limited test coverage by mentoring the team and building a comprehensive test suite—enabling faster deployments with fewer regressions
+```
+
+Pattern: `[Situation] by [Action]—[Result]`
+
+#### Section Structure
+1. **Title:** Role | Differentiator, Stack (e.g., "Senior Software Developer | AI DevX Practitioner, Full-Stack")
+2. **Summary Paragraph 1:** Lead with differentiator (e.g., AI-augmented development)
+3. **Summary Paragraph 2:** Traditional experience and domain expertise
+4. **Technical Skills:** Categorized list with AI & Automation first
+5. **Key Experience:** STAR-formatted bullets per role
 
 ```markdown
 # LinkedIn Accuracy Check
@@ -86,6 +114,14 @@ The following real information surfaced during this workflow is missing from you
 
 ---
 
+## Suggested About Section Update
+
+**Character Count:** [X]/2,600
+
+[Full suggested About section text, ready to copy-paste to LinkedIn]
+
+---
+
 ## What's Already Accurate
 
 Your LinkedIn already includes:
@@ -100,13 +136,23 @@ Your LinkedIn already includes:
 - [ ] [Specific update 2]
 ```
 
-### Step 4: Save Output
+### Step 4: Character Count Validation
+
+Before finalizing recommendations:
+1. Count characters in the suggested About section
+2. If over 2,600, trim content by:
+   - Removing less impactful bullets
+   - Shortening STAR results
+   - Condensing skills lists
+3. Report final character count in output
+
+### Step 5: Save Output
 
 Save to: `~/job-applications/[COMPANY_NAME]/LINKED_IN_ACCURACY_CHECK.md`
 
 This keeps the check tied to the job application that surfaced the suggestions.
 
-### Step 5: Output Summary
+### Step 6: Output Summary
 
 **If LinkedIn is accurate:**
 ```
@@ -122,6 +168,7 @@ No updates needed - your profile already includes the skills and experiences dis
 ## LinkedIn Accuracy Check Complete
 
 **Updates Found:** [N] items
+**Suggested About Section:** [X]/2,600 characters
 
 These are real experiences/skills from this workflow missing from your LinkedIn:
 
@@ -152,3 +199,8 @@ These are real experiences/skills from this workflow missing from your LinkedIn:
    - Each job application has its own `LINKED_IN_ACCURACY_CHECK.md`
    - Tracks which application surfaced which suggestions
    - Review across applications to see patterns
+
+5. **Respect character limits**
+   - LinkedIn About section: 2,600 characters max
+   - Always report character count with recommendations
+   - Trim content if needed to fit
