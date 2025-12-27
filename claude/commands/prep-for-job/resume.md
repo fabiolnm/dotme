@@ -81,9 +81,13 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
   - Describe what YOU did (Action)
   - Quantify results (Result): %, $, time, scale
 
-**Education:**
+**Education & Continuous Learning:**
 - Degree, institution, graduation year
-- Only include if adds value
+- Recent courses/certifications (even basic/awareness level):
+  - AI/ML: Andrew Ng courses, DeepLearning.AI, fast.ai
+  - Cloud: AWS, GCP, Azure certifications
+  - Platforms: Udemy, Coursera, LinkedIn Learning
+- Ask user: "Any recent courses or certifications? Include even introductory ones - they show continuous learning."
 
 **Key Achievements (optional):**
 - 3-4 major career highlights with metrics
