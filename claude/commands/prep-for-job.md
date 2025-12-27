@@ -74,11 +74,14 @@ Execute the `/prep-for-job/fit` workflow:
 Fit Score: [X.X]/10
 - Title Match: X.X/2.0
 - Tech Stack: X.X/3.0
-- Experience: X.X/2.0
-- Industry: X.X/1.5
-- Seniority: X.X/1.5
+- Experience: X.X/1.0
+- Industry: X.X/1.0
+- Seniority: X.X/1.0
+- Compensation: X.X/1.0
+- Work Arrangement: X.X/1.0
 
 [If score < 5.0, ask: "Fit score is low. Continue anyway?"]
+[If Work Arrangement = 0 (onsite), warn: "⚠️ This position is fully onsite. Continue anyway?"]
 ```
 
 ### Step 4: Generate Optimized Resume
