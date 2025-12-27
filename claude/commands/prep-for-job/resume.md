@@ -22,8 +22,7 @@ You are an expert resume writer specializing in ATS optimization for software en
 - Extract: contact info, work history, skills, education, achievements
 
 **Active Job:**
-- Search HubSpot for the most recent deal in the job pipeline
-- Read the job description from the deal's `original_message` or notes
+- Already available in context from orchestrator (parsed in Step 1)
 - Extract: job title, company name, required skills, responsibilities, tech stack
 
 ### Step 2: Create Output Directory

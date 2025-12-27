@@ -16,12 +16,13 @@ You are an expert interview coach for software engineering roles. Create a thoro
 
 ### Step 1: Gather Context
 
+**Context:** Company name and job details already available from orchestrator.
+
 **Read existing files:**
 - `~/job-applications/[COMPANY_NAME]/COMPANY_RESEARCH.md`
 - `~/job-applications/[COMPANY_NAME]/RESUME.md`
 - `~/job-applications/[COMPANY_NAME]/JOB_FIT_ANALYSIS.md` (if exists)
 - `~/job-applications/[COMPANY_NAME]/COVER_LETTER.md` (if exists)
-- Job description from HubSpot deal
 
 **Note:** `COMPANY_RESEARCH.md` contains mission, values, tech stack, recent news, Glassdoor insights, and key people - use this for the Company Research section of the interview package.
 

@@ -17,13 +17,13 @@ You are an ATS optimization expert. Analyze the resume against the job descripti
 
 ### Step 1: Gather Inputs
 
+**Context:** Company name and job details already available from orchestrator.
+
 **Resume:**
 - Read `~/job-applications/[COMPANY_NAME]/RESUME.md`
-- If multiple companies exist, ask which one to analyze
 
 **Job Description:**
-- Search HubSpot for the matching deal
-- Read the job description from deal notes or `original_message`
+- Already available in context from orchestrator (parsed in Step 1)
 
 **Benchmark File (Optional):**
 - Ask: "Do you have a benchmark report from jobrank.ca or similar ATS scoring tool? This helps calibrate scoring accuracy."

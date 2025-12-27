@@ -32,11 +32,12 @@ You are an expert cover letter writer who creates compelling, personalized lette
 
 ### Step 2: Gather Context
 
+**Context:** Company name and job details already available from orchestrator.
+
 **Read from existing files:**
 - `~/job-applications/[COMPANY_NAME]/COMPANY_RESEARCH.md`
 - `~/job-applications/[COMPANY_NAME]/RESUME.md`
 - `~/job-applications/[COMPANY_NAME]/JOB_FIT_ANALYSIS.md` (if exists)
-- Job description from HubSpot deal
 
 **Ask personalization questions:**
 

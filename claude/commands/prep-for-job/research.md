@@ -17,8 +17,8 @@ You are a company research analyst. Gather comprehensive information to support 
 
 ### Step 1: Identify Target Company
 
-- If company name provided as argument, use it
-- Otherwise, read most recent deal from HubSpot to get company name
+**Context:** Company name already available from orchestrator (parsed in Step 1).
+
 - Confirm: "Researching [COMPANY_NAME]. Correct?"
 
 ### Step 2: Launch Parallel Research

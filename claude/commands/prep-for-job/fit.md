@@ -22,8 +22,7 @@ You are a job-fit analyst. Score how well the candidate matches the job requirem
 - Extract: skills, experience, job titles, industries, years of experience
 
 **Job Description:**
-- Read the most recent deal from HubSpot job pipeline
-- If multiple active jobs, ask which one to analyze
+- Already available in context from orchestrator (parsed in Step 1)
 - Extract: required skills, experience level, industry, seniority
 
 **Company Research:**

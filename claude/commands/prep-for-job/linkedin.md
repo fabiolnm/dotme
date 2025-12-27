@@ -20,8 +20,10 @@ You are verifying LinkedIn accuracy - NOT optimizing for a specific job. LinkedI
 - If PDF export provided as argument, read it
 - If not provided, prompt: "Please provide your current LinkedIn PDF export"
 
+**Context:** Company name already available from orchestrator.
+
 **Materials from This Workflow:**
-- Read from the most recent `~/job-applications/[COMPANY_NAME]/` directory:
+- Read from `~/job-applications/[COMPANY_NAME]/`:
   - `RESUME.md`
   - `INTERVIEW_PACKAGE.md` (if exists)
   - `JOB_FIT_ANALYSIS.md` (if exists)
