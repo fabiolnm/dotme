@@ -60,11 +60,18 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
 **Summary (2-3 sentences):**
 - Years of experience + key expertise
 - Top achievement with metrics
-- What you're seeking (aligned to job)
+- AI forward-looking statement: excitement to spearhead AI initiatives, integrate AI into development workflows
 
 **Technical Skills (grouped):**
 - Prioritize skills mentioned in job description FIRST
 - Group by category: Languages, Frameworks, Databases, Cloud/DevOps, Testing
+
+**AI & Development Innovation:**
+- Position AFTER Technical Skills, BEFORE Professional Experience
+- 2-3 bullets showcasing AI-assisted development practices
+- Claude Code workflows, AI pair programming, automated code generation
+- Quantify productivity gains where possible
+- Ask user: "What specific AI tools or workflows have you used? What productivity gains have you seen?"
 
 **Professional Experience (reverse chronological):**
 - Company name, job title, dates, location
@@ -73,11 +80,6 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
   - Include context (Situation/Task)
   - Describe what YOU did (Action)
   - Quantify results (Result): %, $, time, scale
-
-**AI & Automation Achievements:**
-- Highlight Claude Code / AI-assisted development workflow
-- Include productivity improvements from AI tools
-- Ask user: "What specific AI tools or workflows have you used? What productivity gains have you seen?"
 
 **Education:**
 - Degree, institution, graduation year
