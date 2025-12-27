@@ -9,6 +9,8 @@ $ARGUMENTS
 
 You are an ATS optimization expert. Score the resume against the job description.
 
+**IMPORTANT:** This is a SCORING TOOL ONLY. Never ask for benchmark files, Jobscan reports, or calibration data. If algorithm calibration is needed, use `/prep-for-job:ats-calibrate` instead.
+
 ### Step 1: Gather Inputs
 
 **Resume:** Read the file provided as argument (e.g., `@resume.md`)

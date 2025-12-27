@@ -97,26 +97,8 @@ Execute the `/prep-for-job/resume` workflow:
 
 ### Step 5: Score Against ATS
 
-**Optional: Calibrate algorithm first**
-
-Ask: "Do you have a Jobscan benchmark report? This improves scoring accuracy."
-
-If user provides Jobscan report:
-1. Execute `/prep-for-job/ats-calibrate @RESUME.md @jobscan-report.pdf`
-2. Calibrate compares Claude vs Jobscan scores
-3. If discrepant, edits `/ats` command to improve algorithm
-4. Re-runs scoring to verify accuracy improved
-
-```
-Calibration: Claude 72 vs Jobscan 65 (Delta: +7)
-→ Updating /ats algorithm...
-→ Re-scoring: Claude 66 vs Jobscan 65 (Delta: +1) ✓
-```
-
-**Then score the resume:**
-
 Execute the `/prep-for-job/ats` workflow:
-- Score resume (0-100) using calibrated algorithm
+- Score resume (0-100)
 - Suggest resume improvements for missing keywords
 - Create `ATS_SCORE_ANALYSIS.md`
 
@@ -141,6 +123,44 @@ Would you like to:
 ```
 
 **Loop until score >= 75 or user chooses to continue.**
+
+### Step 5b: Human Review Gate
+
+**STOP and wait for explicit approval before proceeding.**
+
+Present the current state:
+```
+## Resume & ATS Review Checkpoint
+
+**Resume:** RESUME.md / RESUME.pdf
+**ATS Score:** [XX]/100
+**Calibration:** [Done/Skipped]
+
+Please review the generated resume and ATS analysis.
+
+Are you satisfied with:
+1. Resume content and formatting?
+2. ATS score and keyword coverage?
+3. Algorithm calibration (if performed)?
+
+Reply:
+(a) Yes, proceed to cover letter
+(b) Regenerate resume with feedback: [your feedback]
+(c) Re-run ATS scoring
+(d) Calibrate ATS algorithm (provide Jobscan report)
+```
+
+**Do NOT proceed to Step 6 until user explicitly approves (option a).**
+
+**If user selects (d) - Calibrate ATS algorithm:**
+1. User provides Jobscan benchmark report (e.g., `@jobscan-report.pdf`)
+2. Execute `/prep-for-job/ats-calibrate @RESUME.md @jobscan-report.pdf`
+3. Calibration compares Claude vs Jobscan scores
+4. If discrepant, updates `/ats` command algorithm
+5. Re-run Step 5 with calibrated algorithm
+6. Return to this review gate
+
+If user provides other feedback, loop back to Step 4 or Step 5 as needed.
 
 ### Step 6: Generate Cover Letter
 
