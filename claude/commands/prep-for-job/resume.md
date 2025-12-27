@@ -150,11 +150,6 @@ Create a note on the deal using `hubspot-create-engagement`:
 - ~/job-applications/[company]/RESUME.pdf
 
 **Keywords Matched:** [X] of [Y] from job description
-
-**Next Steps:**
-1. Review the resume for accuracy
-2. Run `/ats` to score against ATS criteria
-3. Iterate until score >= 8.5
 ```
 
 ### Important Constraints

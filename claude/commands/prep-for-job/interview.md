@@ -317,22 +317,12 @@ Create a note on the deal using `hubspot-create-engagement`:
 
 **Package Contents:**
 1. Company Research
-2. Technical Preparation (X topics)
-3. Behavioral STAR Stories (X stories)
+2. Technical Preparation
+3. Behavioral STAR Stories
 4. Storytelling Guide
-5. Questions to Ask (X questions)
+5. Questions to Ask
 6. 1-Week Prep Schedule
 7. Interview Day Checklist
-
-**Application Package Complete:**
-- [x] RESUME.pdf
-- [x] COVER_LETTER.pdf
-- [x] INTERVIEW_PACKAGE.pdf
-
-**Next Steps:**
-1. Review and personalize STAR stories
-2. Follow the 1-week schedule
-3. Run `/linkedin` to optimize your profile
 ```
 
 ### Important Constraints

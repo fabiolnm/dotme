@@ -216,12 +216,10 @@ Create a note on the deal using `hubspot-create-engagement`:
 **Company:** [COMPANY_NAME]
 **File:** ~/job-applications/[company]/COMPANY_RESEARCH.md
 
-**Ready for:**
-- `/prep-for-job/fit` - Job fit scoring
-- `/prep-for-job/cover-letter` - Personalized cover letter
-- `/prep-for-job/interview` - Interview preparation
-
-**Next Step:** Run `/prep-for-job/fit @linkedin.pdf` to calculate job fit score
+**Key Insights:**
+1. [Most important finding]
+2. [Second most important]
+3. [Third most important]
 ```
 
 ### Important Notes

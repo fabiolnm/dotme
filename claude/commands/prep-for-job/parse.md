@@ -323,23 +323,6 @@ After creating all records, output a formatted summary:
 - [X] outbound messages (if any)
 ```
 
-### Step 10: Invoke Job-Fit Analysis
-
-After creating all HubSpot records, prompt user to run job-fit analysis:
-
-```
-## Next: Job Fit Analysis
-
-To calculate your fit score for this role, run:
-
-/job-fit @your-linkedin-export.pdf
-
-This will:
-- Score your match (0-10) across 5 criteria
-- Create ~/job-applications/[company]/JOB_FIT_ANALYSIS.md
-- Store scores in HubSpot for tracking
-```
-
 ### Important Notes
 
 - **Last Contacted** (`notes_last_contacted`) is auto-set by HubSpot when calls/emails/meetings are logged - we track `last_activity_date` separately for manual updates

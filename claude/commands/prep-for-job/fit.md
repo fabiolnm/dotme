@@ -166,11 +166,6 @@ Generate `JOB_FIT_ANALYSIS.md`:
 **Score 4.0-5.9:** Moderate fit - Consider if worth pursuing
 **Score < 4.0:** Weak fit - May want to reconsider
 
-## Next Steps
-
-1. Run `/resume @linkedin.pdf` to generate optimized resume
-2. Run `/ats` to score against ATS criteria
-3. Target ATS score of 8.5+ before `/cover-letter`
 ```
 
 Save to: `~/job-applications/[COMPANY_NAME]/JOB_FIT_ANALYSIS.md`
@@ -217,9 +212,6 @@ Create a note on the deal using `hubspot-create-engagement`:
 - Deal scores saved
 
 **Recommendation:** [Strong fit / Good fit / Moderate fit / Weak fit]
-
-**Next Steps:**
-1. Run `/resume @linkedin.pdf` to generate optimized resume
 ```
 
 ### Important Notes

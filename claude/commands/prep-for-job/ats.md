@@ -140,16 +140,6 @@ Create detailed analysis with:
 
 **Calibration Notes:** [observations about scoring differences]
 
-## Next Steps
-
-[If score < 8.5]
-- Address Priority 1 items
-- Re-run `/ats` after changes
-- Target: 8.5+ before generating cover letter
-
-[If score >= 8.5]
-- Resume is ready for submission
-- Run `/cover-letter` to generate cover letter
 ```
 
 ### Step 5: Save Output
@@ -197,9 +187,7 @@ After making changes, run `/ats` again to re-score.
 
 Your ATS score is [X.X]/10. This meets the 8.5+ threshold.
 
-Your resume is optimized for ATS parsing. Next steps:
-1. Run `/cover-letter` to generate your cover letter
-2. Review both documents before submission
+Your resume is optimized for ATS parsing.
 ```
 
 ### Important Notes

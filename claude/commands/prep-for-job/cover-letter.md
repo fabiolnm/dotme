@@ -165,16 +165,6 @@ Create a note on the deal using `hubspot-create-engagement`:
 2. [Achievement 2 - mapped to requirement Y]
 
 **Company Connection:** [What you mentioned about why this company]
-
-**Next Steps:**
-1. Review the cover letter for accuracy and tone
-2. Run `/interview-package` to prepare for interviews
-3. Submit your application!
-
-**Application Package Complete:**
-- [x] RESUME.pdf
-- [x] COVER_LETTER.pdf
-- [ ] INTERVIEW_PACKAGE.pdf (run /interview-package)
 ```
 
 ### Important Constraints
