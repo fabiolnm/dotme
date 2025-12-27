@@ -47,7 +47,7 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
 ```
 # [FULL NAME]
 **[City, Province/State, Country]**
-[Phone] | [Email] | linkedin.com/in/[handle]
+[Phone] | [Email] | linkedin.com/in/[handle] | [blog url]
 ```
 
 **Professional Title & Keywords:**
