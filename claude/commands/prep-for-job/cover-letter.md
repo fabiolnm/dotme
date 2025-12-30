@@ -102,18 +102,9 @@ Check the letter does NOT have:
 - [ ] Typos or grammatical errors
 - [ ] Fabricated information
 
-### Step 5: Save and Convert
+### Step 5: Save
 
-1. Save to: `~/job-applications/[COMPANY_NAME]/COVER_LETTER.md`
-
-2. Convert to PDF:
-   ```bash
-   pandoc ~/job-applications/[COMPANY_NAME]/COVER_LETTER.md \
-     -o ~/job-applications/[COMPANY_NAME]/COVER_LETTER.pdf \
-     --pdf-engine=wkhtmltopdf \
-     -V geometry:margin=1in \
-     -V fontsize=11pt
-   ```
+Save to: `~/job-applications/[COMPANY_NAME]/COVER_LETTER.md`
 
 ### Step 6: Save to HubSpot
 
@@ -143,7 +134,6 @@ Create a note on the deal using `hubspot-create-engagement`:
 
 **Files Created:**
 - ~/job-applications/[company]/COVER_LETTER.md
-- ~/job-applications/[company]/COVER_LETTER.pdf
 
 **Key Points Highlighted:**
 1. [Achievement 1 - mapped to requirement X]

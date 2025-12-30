@@ -58,10 +58,15 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
 **[Keyword 1] | [Keyword 2] | [Keyword 3] | [Keyword 4] | [Keyword 5]**
 ```
 
-**Summary (2-3 sentences):**
+**Summary Section (use exact header `## Summary`):**
+```
+## Summary
+[2-3 sentences]
+```
 - Years of experience + key expertise
 - Top achievement with metrics
 - AI forward-looking statement: excitement to spearhead AI initiatives, integrate AI into development workflows
+- **Include soft skills from JD** - Weave in exact phrases like "communication skills", "fast-paced environment", "high-agency", "attention to detail" naturally
 
 **Technical Skills (grouped):**
 - Prioritize skills mentioned in job description FIRST
@@ -76,15 +81,16 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
 
 **Professional Experience (reverse chronological):**
 - Company name, job title, dates, location
+- **Date format (ATS-optimized):** Use abbreviated months: "Dec 2021 - Dec 2025" not "December 2021 - December 2025"
 - 3-5 bullet points per role using STAR method:
   - Start with action verb
   - Include context (Situation/Task)
   - Describe what YOU did (Action)
   - Quantify results (Result): %, $, time, scale
 
-**Education & Continuous Learning:**
+**Education (use exact header `## Education`):**
 - Degree, institution, graduation year
-- Recent courses/certifications (even basic/awareness level):
+- **Recent Learning** sub-section for courses/certifications (even basic/awareness level):
   - AI/ML: Andrew Ng courses, DeepLearning.AI, fast.ai
   - Cloud: AWS, GCP, Azure certifications
   - Platforms: Udemy, Coursera, LinkedIn Learning
@@ -95,7 +101,7 @@ Create directory: `~/job-applications/[COMPANY_NAME]/`
 
 #### 3.3 STAR Method Examples
 
-Good: "Led Ruby 2.0→3.0 migration for platform serving 80,000+ organizations, implementing staged rollout with comprehensive test coverage, resulting in zero production incidents"
+Good: "Led Ruby 2.0 to 3.0 migration for platform serving 80,000+ organizations, implementing staged rollout with comprehensive test coverage: zero production incidents"
 
 Bad: "Responsible for Ruby upgrades" (no STAR, no metrics)
 
@@ -104,6 +110,10 @@ Bad: "Responsible for Ruby upgrades" (no STAR, no metrics)
 - Reorder skills to match job requirements order
 - Emphasize relevant experience, minimize unrelated work
 - Mirror language/terminology from job description
+- **Extract soft skills from JD** and include exact phrases:
+  - Common soft skills: "communication skills", "cross-functional", "collaboration", "fast-paced", "attention to detail", "proactive", "high-agency", "problem-solving"
+  - Include in Summary section and experience bullets where natural
+  - Multi-word phrases must appear verbatim (not paraphrased)
 
 ### Step 4: Ask Clarifying Questions
 
@@ -118,14 +128,6 @@ Before generating, ALWAYS ask about:
 
 1. Generate resume in Markdown format
 2. Save to: `~/job-applications/[COMPANY_NAME]/RESUME.md`
-3. Convert to PDF using pandoc:
-   ```bash
-   pandoc ~/job-applications/[COMPANY_NAME]/RESUME.md \
-     -o ~/job-applications/[COMPANY_NAME]/RESUME.pdf \
-     --pdf-engine=wkhtmltopdf \
-     -V geometry:margin=0.75in \
-     -V fontsize=11pt
-   ```
 
 ### Step 6: Save to HubSpot
 
@@ -155,7 +157,6 @@ Create a note on the deal using `hubspot-create-engagement`:
 
 **Output:**
 - ~/job-applications/[company]/RESUME.md
-- ~/job-applications/[company]/RESUME.pdf
 
 **Keywords Matched:** [X] of [Y] from job description
 ```
@@ -167,3 +168,5 @@ Create a note on the deal using `hubspot-create-engagement`:
 3. **Quantify everything** - If no metric exists, ask the user
 4. **Match the job** - Every bullet should relate to job requirements where possible
 5. **Active voice** - "Built", "Led", "Designed" not "Was responsible for"
+6. **NO EM-DASH (—)** - Use "," or ":" instead. The character "—" is strictly forbidden.
+7. **MAX 40 WORDS per bullet/paragraph** - Keep sentences concise for readability and ATS scanning.

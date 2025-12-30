@@ -272,19 +272,9 @@ If they ask about [potential gap], respond with:
 
 ---
 
-### Step 3: Save and Convert
+### Step 3: Save
 
-1. Save to: `~/job-applications/[COMPANY_NAME]/INTERVIEW_PACKAGE.md`
-
-2. Convert to PDF:
-   ```bash
-   pandoc ~/job-applications/[COMPANY_NAME]/INTERVIEW_PACKAGE.md \
-     -o ~/job-applications/[COMPANY_NAME]/INTERVIEW_PACKAGE.pdf \
-     --pdf-engine=wkhtmltopdf \
-     -V geometry:margin=0.75in \
-     -V fontsize=10pt \
-     --toc
-   ```
+Save to: `~/job-applications/[COMPANY_NAME]/INTERVIEW_PACKAGE.md`
 
 ### Step 4: Save to HubSpot
 
@@ -314,7 +304,6 @@ Create a note on the deal using `hubspot-create-engagement`:
 
 **Files Created:**
 - ~/job-applications/[company]/INTERVIEW_PACKAGE.md
-- ~/job-applications/[company]/INTERVIEW_PACKAGE.pdf
 
 **Package Contents:**
 1. Company Research

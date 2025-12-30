@@ -90,7 +90,7 @@ Execute the `/prep-for-job/resume` workflow:
 - Generate ATS-optimized resume following CV guidelines
 - Apply STAR method to experience bullets
 - Highlight AI/Claude Code achievements
-- Create `RESUME.md` and `.pdf`
+- Create `RESUME.md`
 
 **Checkpoint:** Confirm resume generated, show path.
 
@@ -135,7 +135,7 @@ Present the current state:
 ```
 ## Resume & ATS Review Checkpoint
 
-**Resume:** RESUME.md / RESUME.pdf
+**Resume:** RESUME.md
 **ATS Score:** [XX]/100
 **Calibration:** [Done/Skipped]
 
@@ -171,7 +171,7 @@ Execute the `/prep-for-job/cover-letter` workflow:
 - Use company research from Step 2 to tailor the letter
 - Reference specific insights (mission, recent news, tech stack, culture)
 - Generate personalized cover letter
-- Create `COVER_LETTER.md` and `.pdf`
+- Create `COVER_LETTER.md`
 
 **Leverage Step 2 research:**
 - Company mission/values → Opening paragraph hook
@@ -195,7 +195,7 @@ Execute the `/prep-for-job/interview` workflow:
 - Build storytelling guide
 - Generate questions to ask
 - Create 1-week prep schedule
-- Create `INTERVIEW_PACKAGE.md` and `.pdf`
+- Create `INTERVIEW_PACKAGE.md`
 
 **Extract from research:** Interview stages from Glassdoor/job description. Confirm with user.
 
@@ -239,11 +239,8 @@ Execute the `/prep-for-job/linkedin` workflow:
 ├── JOB_FIT_ANALYSIS.md
 ├── ATS_SCORE_ANALYSIS.md
 ├── RESUME.md
-├── RESUME.pdf
 ├── COVER_LETTER.md
-├── COVER_LETTER.pdf
 ├── INTERVIEW_PACKAGE.md
-├── INTERVIEW_PACKAGE.pdf
 └── LINKED_IN_ACCURACY_CHECK.md
 
 ### Application Checklist
@@ -257,11 +254,11 @@ Execute the `/prep-for-job/linkedin` workflow:
 
 ### Next Steps
 1. Review all generated documents for accuracy
-2. Submit application with RESUME.pdf and COVER_LETTER.pdf
-3. Follow 1-week prep schedule in INTERVIEW_PACKAGE.pdf
+2. Submit application with RESUME.md and COVER_LETTER.md
+3. Follow 1-week prep schedule in INTERVIEW_PACKAGE.md
 4. Update LinkedIn based on suggestions (optional)
 
-Good luck! 🎯
+Good luck!
 ```
 
 ### Important Constraints

@@ -9,7 +9,7 @@ $ARGUMENTS
 
 You are an ATS optimization expert. Score the resume against the job description.
 
-**IMPORTANT:** This is a SCORING TOOL ONLY. Never ask for benchmark files, Jobscan reports, or calibration data. If algorithm calibration is needed, use `/prep-for-job:ats-calibrate` instead.
+**IMPORTANT:** This is a SCORING TOOL ONLY. Score the resume AS-IS. Do not suggest fixes inline. If algorithm calibration is needed, use `/prep-for-job:ats-calibrate` instead.
 
 ### Step 1: Gather Inputs
 
@@ -19,16 +19,21 @@ You are an ATS optimization expert. Score the resume against the job description
 
 ### Step 2: Extract Keywords from Job Description
 
-#### Hard Skills
-Parse for technical terms:
+#### Hard Skills (STRICT extraction)
+Parse ALL skill-related terms from JD, including:
 - Programming languages, frameworks, databases
 - Cloud/Infrastructure, methodologies
-- Domain terms, job-specific terms
+- Domain terms: "product development", "user experience", "user needs"
+- Work practices: "pair programming", "code review", "TDD"
+- Tool names exactly as written
+
+**CRITICAL:** Extract keywords EXACTLY as they appear in the JD. Do not paraphrase.
 
 #### Soft Skills
 Parse for collaboration/interpersonal terms:
-- Collaboration, teamwork, communication
+- Collaboration, teamwork, communication skills
 - Leadership, mentoring, cross-functional
+- Fast-paced, proactive, attention to detail
 
 ### Step 3: Scoring Algorithm
 
@@ -43,47 +48,63 @@ Parse for collaboration/interpersonal terms:
 
 #### 3.1 Hard Skills Score (0-40 points)
 
-- List all hard skill keywords from JD
+- List ALL hard skill keywords from JD (typically 15-25 keywords)
 - Count: matched / total keywords
 - Score = (matched / total) × 40
 - Each missing keyword = 1 "issue"
 
 **Matching rules (STRICT - calibrated to Jobscan):**
 - Case-insensitive
-- Use synonym map below for exact equivalents only
-- **DO NOT infer matches** - the keyword or its exact synonym must appear in the resume
-- "product" does NOT match "product development"
-- "customers" does NOT match "customer support"
-- "optimized queries" does NOT match "query tuning"
+- Use synonym map below for EXACT equivalents only
+- **DO NOT infer matches** - the keyword or its exact synonym must appear verbatim
 - Multi-word phrases must match as complete phrases
+- Partial matches do NOT count:
+  - "product" does NOT match "product development"
+  - "user" does NOT match "user experience" or "user needs"
+  - "communication" does NOT match "communication skills"
+  - "GCP" does NOT match "Google Cloud Platform" (use both if needed)
 
 #### 3.2 Soft Skills Score (0-15 points)
 
 - Score = (matched / total) × 15
 - Each missing soft skill = 1 "issue"
 
-**Matching rules (STRICT - calibrated to Jobscan):**
+**Matching rules (STRICT):**
 - Require exact keyword match (case-insensitive)
-- "cross-functional teams" does NOT match "teamwork"
-- "collaborated" matches "collaboration" (same root word)
+- Root word matches allowed: "collaborated" matches "collaboration"
+- Phrase matches required for multi-word terms:
+  - "cross-functional teams" requires "cross-functional" (partial OK)
+  - "communication skills" requires exact phrase, not just "communication"
+  - "attention to detail" requires exact phrase
 
 #### 3.3 Searchability Score (0-25 points)
 
-| Check | Points |
-|-------|--------|
-| Email present | 3 |
-| Phone present | 3 |
-| Full address (street/city/state/zip) | 3 |
-| Summary section | 3 |
-| Education section | 3 |
-| Work experience section | 3 |
-| Job title match | 4 |
-| Date formatting | 3 |
+| Check | Points | Criteria |
+|-------|--------|----------|
+| Email present | 3 | Valid email format |
+| Phone present | 3 | Phone number visible |
+| Full address | 3 | Street + City + State/Province + ZIP/Postal |
+| Summary section | 3 | Section header: "Summary" or "Professional Summary" |
+| Education section | 3 | Section header: exactly "Education" (not "Education & Learning") |
+| Work experience section | 3 | Section header: "Experience" or "Professional Experience" |
+| Job title match | 4 | Resume title matches or closely matches JD title |
+| Date formatting | 3 | Consistent format: "Mon YYYY - Mon YYYY" or "Mon YYYY - Present" |
 
-**Address check (calibrated to Jobscan):**
+**Section header matching (STRICT):**
+- Headers must use standard ATS-parseable names
+- "Education & Continuous Learning" = FAIL (non-standard)
+- "Education" = PASS
+- "Work History" = PASS, "Professional Experience" = PASS
+
+**Date formatting (STRICT):**
+- Abbreviated months preferred: "Dec 2021" not "December 2021"
+- Consistent format throughout
+- "Present" or "Current" for ongoing roles
+
+**Address check:**
 - "City, State" or "City, Province, Country" = FAIL (incomplete)
 - Full street address with city/state/zip = PASS
-- Most remote job seekers will fail this check
+- Most remote job seekers will fail this check (acceptable)
 
 #### 3.4 Recruiter Tips Score (0-20 points)
 
@@ -94,11 +115,6 @@ Parse for collaboration/interpersonal terms:
 | Web presence (LinkedIn) | 5 |
 | Word count (400-1000) | 3 |
 | Job level match | 2 |
-
-**Job level match (calibrated to Jobscan):**
-- Exact match or slightly under = PASS (2 points)
-- Overqualified (significantly more experience than required) = WARNING (1 issue, 1 point)
-- Underqualified = FAIL (1 issue, 0 points)
 
 ### Step 4: Output Score Report
 
@@ -118,43 +134,70 @@ Parse for collaboration/interpersonal terms:
 | Searchability | X | XX | 25 |
 | Recruiter Tips | X | XX | 20 |
 
-## Hard Skills
+---
+
+## Hard Skills ([X]/[Y] matched)
 
 ### Found
-| Skill | Resume | JD |
-|-------|--------|-----|
-| ... | X | X |
+| Keyword (from JD) | Found in Resume |
+|-------------------|-----------------|
+| TypeScript | ✓ |
+| Node.js | ✓ |
 
 ### Missing
-| Skill | Action |
-|-------|--------|
-| ... | ... |
+| Keyword (from JD) | Status |
+|-------------------|--------|
+| product development | Not found |
+| user experience | Not found |
 
-## Soft Skills
+---
+
+## Soft Skills ([X]/[Y] matched)
 
 ### Found
-- ...
+| Keyword | Location |
+|---------|----------|
+| collaboration | Summary |
 
 ### Missing
-- ...
+| Keyword | Status |
+|---------|--------|
+| communication skills | "communication" found but not "communication skills" |
+
+---
 
 ## Searchability
 
-| Check | Status |
-|-------|--------|
-| ... | ✓/✗ |
+| Check | Status | Notes |
+|-------|--------|-------|
+| Email | ✓ | |
+| Phone | ✓ | |
+| Full address | ✗ | City only, missing street/zip |
+| Summary section | ✓ | |
+| Education section | ✗ | Header is "Education & Continuous Learning" |
+| Experience section | ✓ | |
+| Job title match | ✓ | |
+| Date formatting | ✗ | Uses "December" not "Dec" |
+
+---
 
 ## Recruiter Tips
 
 | Check | Status |
 |-------|--------|
-| ... | ✓/✗/⚠ |
+| Measurable results (5+) | ✓ |
+| Resume tone | ✓ |
+| Web presence | ✓ |
+| Word count | ✓ |
+| Job level match | ✓ |
 
-## Priority Fixes
+---
 
-1. [Most impactful]
-2. [Second]
-3. [Third]
+## Summary
+
+**Score: [XX]/100**
+
+Hard skills gap is the primary issue. [X] keywords from JD not found in resume.
 ```
 
 ### Synonym Map (Exact Equivalents Only)
@@ -170,10 +213,14 @@ Technical synonyms (bidirectional matches):
 - React.js = React = ReactJS
 - Node = Node.js = NodeJS
 - CI/CD = continuous integration
+- Google Cloud Platform = GCP (ONLY if both forms accepted)
 
 **NOT synonyms (do not match):**
 - "product" ≠ "product development"
-- "customer" / "customers" ≠ "customer support"
-- "optimized queries" / "query optimization" ≠ "query tuning"
-- "cross-functional" / "teams" ≠ "teamwork"
-- "whiteboard" (verb) ≠ "Whiteboards" (product name)
+- "user" ≠ "user experience" ≠ "user needs"
+- "communication" ≠ "communication skills"
+- "customer" ≠ "customer support"
+- "code review" ≠ "reviewing code"
+- "pair programming" ≠ "pairing" ≠ "programming"
+- "cross-functional" ≠ "teamwork"
+- "GCP" ≠ "Google Cloud" (treat as separate keywords)
